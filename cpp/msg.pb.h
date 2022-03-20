@@ -48,19 +48,13 @@ struct TableStruct_msg_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_msg_2eproto;
-class NetResult;
-struct NetResultDefaultTypeInternal;
-extern NetResultDefaultTypeInternal _NetResult_default_instance_;
-class NotifyMsg;
-struct NotifyMsgDefaultTypeInternal;
-extern NotifyMsgDefaultTypeInternal _NotifyMsg_default_instance_;
 class ReqMsg;
 struct ReqMsgDefaultTypeInternal;
 extern ReqMsgDefaultTypeInternal _ReqMsg_default_instance_;
@@ -70,16 +64,10 @@ extern RspInfoDefaultTypeInternal _RspInfo_default_instance_;
 class RspMsg;
 struct RspMsgDefaultTypeInternal;
 extern RspMsgDefaultTypeInternal _RspMsg_default_instance_;
-class TrapMsg;
-struct TrapMsgDefaultTypeInternal;
-extern TrapMsgDefaultTypeInternal _TrapMsg_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
-template<> ::NetResult* Arena::CreateMaybeMessage<::NetResult>(Arena*);
-template<> ::NotifyMsg* Arena::CreateMaybeMessage<::NotifyMsg>(Arena*);
 template<> ::ReqMsg* Arena::CreateMaybeMessage<::ReqMsg>(Arena*);
 template<> ::RspInfo* Arena::CreateMaybeMessage<::RspInfo>(Arena*);
 template<> ::RspMsg* Arena::CreateMaybeMessage<::RspMsg>(Arena*);
-template<> ::TrapMsg* Arena::CreateMaybeMessage<::TrapMsg>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
 enum MsgType : int {
@@ -138,152 +126,6 @@ inline bool MsgType_Parse(
 }
 // ===================================================================
 
-class NetResult final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:NetResult) */ {
- public:
-  inline NetResult() : NetResult(nullptr) {}
-  ~NetResult() override;
-  explicit constexpr NetResult(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  NetResult(const NetResult& from);
-  NetResult(NetResult&& from) noexcept
-    : NetResult() {
-    *this = ::std::move(from);
-  }
-
-  inline NetResult& operator=(const NetResult& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline NetResult& operator=(NetResult&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const NetResult& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const NetResult* internal_default_instance() {
-    return reinterpret_cast<const NetResult*>(
-               &_NetResult_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(NetResult& a, NetResult& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(NetResult* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(NetResult* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  NetResult* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<NetResult>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const NetResult& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const NetResult& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(NetResult* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "NetResult";
-  }
-  protected:
-  explicit NetResult(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kResultFieldNumber = 1,
-  };
-  // int32 result = 1;
-  void clear_result();
-  int32_t result() const;
-  void set_result(int32_t value);
-  private:
-  int32_t _internal_result() const;
-  void _internal_set_result(int32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:NetResult)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  int32_t result_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_msg_2eproto;
-};
-// -------------------------------------------------------------------
-
 class RspInfo final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:RspInfo) */ {
  public:
@@ -332,7 +174,7 @@ class RspInfo final :
                &_RspInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   friend void swap(RspInfo& a, RspInfo& b) {
     a.Swap(&b);
@@ -494,7 +336,7 @@ class ReqMsg final :
                &_ReqMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   friend void swap(ReqMsg& a, ReqMsg& b) {
     a.Swap(&b);
@@ -568,10 +410,11 @@ class ReqMsg final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kReqFieldNumber = 2,
+    kReqFieldNumber = 3,
     kTypeFieldNumber = 1,
+    kRequestIdFieldNumber = 2,
   };
-  // .google.protobuf.Any req = 2;
+  // .google.protobuf.Any req = 3;
   bool has_req() const;
   private:
   bool _internal_has_req() const;
@@ -598,6 +441,15 @@ class ReqMsg final :
   void _internal_set_type(::MsgType value);
   public:
 
+  // int32 request_id = 2;
+  void clear_request_id();
+  int32_t request_id() const;
+  void set_request_id(int32_t value);
+  private:
+  int32_t _internal_request_id() const;
+  void _internal_set_request_id(int32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:ReqMsg)
  private:
   class _Internal;
@@ -607,6 +459,7 @@ class ReqMsg final :
   typedef void DestructorSkippable_;
   ::google::protobuf::Any* req_;
   int type_;
+  int32_t request_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_msg_2eproto;
 };
@@ -660,7 +513,7 @@ class RspMsg final :
                &_RspMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   friend void swap(RspMsg& a, RspMsg& b) {
     a.Swap(&b);
@@ -718,338 +571,6 @@ class RspMsg final :
   }
   protected:
   explicit RspMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kRspFieldNumber = 2,
-    kTypeFieldNumber = 1,
-  };
-  // .google.protobuf.Any rsp = 2;
-  bool has_rsp() const;
-  private:
-  bool _internal_has_rsp() const;
-  public:
-  void clear_rsp();
-  const ::google::protobuf::Any& rsp() const;
-  PROTOBUF_NODISCARD ::google::protobuf::Any* release_rsp();
-  ::google::protobuf::Any* mutable_rsp();
-  void set_allocated_rsp(::google::protobuf::Any* rsp);
-  private:
-  const ::google::protobuf::Any& _internal_rsp() const;
-  ::google::protobuf::Any* _internal_mutable_rsp();
-  public:
-  void unsafe_arena_set_allocated_rsp(
-      ::google::protobuf::Any* rsp);
-  ::google::protobuf::Any* unsafe_arena_release_rsp();
-
-  // .MsgType type = 1;
-  void clear_type();
-  ::MsgType type() const;
-  void set_type(::MsgType value);
-  private:
-  ::MsgType _internal_type() const;
-  void _internal_set_type(::MsgType value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:RspMsg)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::google::protobuf::Any* rsp_;
-  int type_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_msg_2eproto;
-};
-// -------------------------------------------------------------------
-
-class TrapMsg final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:TrapMsg) */ {
- public:
-  inline TrapMsg() : TrapMsg(nullptr) {}
-  ~TrapMsg() override;
-  explicit constexpr TrapMsg(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  TrapMsg(const TrapMsg& from);
-  TrapMsg(TrapMsg&& from) noexcept
-    : TrapMsg() {
-    *this = ::std::move(from);
-  }
-
-  inline TrapMsg& operator=(const TrapMsg& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TrapMsg& operator=(TrapMsg&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const TrapMsg& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const TrapMsg* internal_default_instance() {
-    return reinterpret_cast<const TrapMsg*>(
-               &_TrapMsg_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(TrapMsg& a, TrapMsg& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(TrapMsg* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TrapMsg* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  TrapMsg* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<TrapMsg>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const TrapMsg& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const TrapMsg& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(TrapMsg* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "TrapMsg";
-  }
-  protected:
-  explicit TrapMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kFieldFieldNumber = 2,
-    kTypeFieldNumber = 1,
-  };
-  // .google.protobuf.Any field = 2;
-  bool has_field() const;
-  private:
-  bool _internal_has_field() const;
-  public:
-  void clear_field();
-  const ::google::protobuf::Any& field() const;
-  PROTOBUF_NODISCARD ::google::protobuf::Any* release_field();
-  ::google::protobuf::Any* mutable_field();
-  void set_allocated_field(::google::protobuf::Any* field);
-  private:
-  const ::google::protobuf::Any& _internal_field() const;
-  ::google::protobuf::Any* _internal_mutable_field();
-  public:
-  void unsafe_arena_set_allocated_field(
-      ::google::protobuf::Any* field);
-  ::google::protobuf::Any* unsafe_arena_release_field();
-
-  // .MsgType type = 1;
-  void clear_type();
-  ::MsgType type() const;
-  void set_type(::MsgType value);
-  private:
-  ::MsgType _internal_type() const;
-  void _internal_set_type(::MsgType value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:TrapMsg)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::google::protobuf::Any* field_;
-  int type_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_msg_2eproto;
-};
-// -------------------------------------------------------------------
-
-class NotifyMsg final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:NotifyMsg) */ {
- public:
-  inline NotifyMsg() : NotifyMsg(nullptr) {}
-  ~NotifyMsg() override;
-  explicit constexpr NotifyMsg(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  NotifyMsg(const NotifyMsg& from);
-  NotifyMsg(NotifyMsg&& from) noexcept
-    : NotifyMsg() {
-    *this = ::std::move(from);
-  }
-
-  inline NotifyMsg& operator=(const NotifyMsg& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline NotifyMsg& operator=(NotifyMsg&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const NotifyMsg& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const NotifyMsg* internal_default_instance() {
-    return reinterpret_cast<const NotifyMsg*>(
-               &_NotifyMsg_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(NotifyMsg& a, NotifyMsg& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(NotifyMsg* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(NotifyMsg* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  NotifyMsg* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<NotifyMsg>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const NotifyMsg& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const NotifyMsg& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(NotifyMsg* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "NotifyMsg";
-  }
-  protected:
-  explicit NotifyMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -1135,7 +656,7 @@ class NotifyMsg final :
   void _internal_set_islast(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:NotifyMsg)
+  // @@protoc_insertion_point(class_scope:RspMsg)
  private:
   class _Internal;
 
@@ -1159,30 +680,6 @@ class NotifyMsg final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// NetResult
-
-// int32 result = 1;
-inline void NetResult::clear_result() {
-  result_ = 0;
-}
-inline int32_t NetResult::_internal_result() const {
-  return result_;
-}
-inline int32_t NetResult::result() const {
-  // @@protoc_insertion_point(field_get:NetResult.result)
-  return _internal_result();
-}
-inline void NetResult::_internal_set_result(int32_t value) {
-  
-  result_ = value;
-}
-inline void NetResult::set_result(int32_t value) {
-  _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:NetResult.result)
-}
-
-// -------------------------------------------------------------------
-
 // RspInfo
 
 // int32 error_id = 1;
@@ -1280,7 +777,27 @@ inline void ReqMsg::set_type(::MsgType value) {
   // @@protoc_insertion_point(field_set:ReqMsg.type)
 }
 
-// .google.protobuf.Any req = 2;
+// int32 request_id = 2;
+inline void ReqMsg::clear_request_id() {
+  request_id_ = 0;
+}
+inline int32_t ReqMsg::_internal_request_id() const {
+  return request_id_;
+}
+inline int32_t ReqMsg::request_id() const {
+  // @@protoc_insertion_point(field_get:ReqMsg.request_id)
+  return _internal_request_id();
+}
+inline void ReqMsg::_internal_set_request_id(int32_t value) {
+  
+  request_id_ = value;
+}
+inline void ReqMsg::set_request_id(int32_t value) {
+  _internal_set_request_id(value);
+  // @@protoc_insertion_point(field_set:ReqMsg.request_id)
+}
+
+// .google.protobuf.Any req = 3;
 inline bool ReqMsg::_internal_has_req() const {
   return this != internal_default_instance() && req_ != nullptr;
 }
@@ -1390,243 +907,23 @@ inline void RspMsg::set_type(::MsgType value) {
   // @@protoc_insertion_point(field_set:RspMsg.type)
 }
 
-// .google.protobuf.Any rsp = 2;
-inline bool RspMsg::_internal_has_rsp() const {
-  return this != internal_default_instance() && rsp_ != nullptr;
-}
-inline bool RspMsg::has_rsp() const {
-  return _internal_has_rsp();
-}
-inline const ::google::protobuf::Any& RspMsg::_internal_rsp() const {
-  const ::google::protobuf::Any* p = rsp_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Any&>(
-      ::google::protobuf::_Any_default_instance_);
-}
-inline const ::google::protobuf::Any& RspMsg::rsp() const {
-  // @@protoc_insertion_point(field_get:RspMsg.rsp)
-  return _internal_rsp();
-}
-inline void RspMsg::unsafe_arena_set_allocated_rsp(
-    ::google::protobuf::Any* rsp) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(rsp_);
-  }
-  rsp_ = rsp;
-  if (rsp) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:RspMsg.rsp)
-}
-inline ::google::protobuf::Any* RspMsg::release_rsp() {
-  
-  ::google::protobuf::Any* temp = rsp_;
-  rsp_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::google::protobuf::Any* RspMsg::unsafe_arena_release_rsp() {
-  // @@protoc_insertion_point(field_release:RspMsg.rsp)
-  
-  ::google::protobuf::Any* temp = rsp_;
-  rsp_ = nullptr;
-  return temp;
-}
-inline ::google::protobuf::Any* RspMsg::_internal_mutable_rsp() {
-  
-  if (rsp_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf::Any>(GetArenaForAllocation());
-    rsp_ = p;
-  }
-  return rsp_;
-}
-inline ::google::protobuf::Any* RspMsg::mutable_rsp() {
-  ::google::protobuf::Any* _msg = _internal_mutable_rsp();
-  // @@protoc_insertion_point(field_mutable:RspMsg.rsp)
-  return _msg;
-}
-inline void RspMsg::set_allocated_rsp(::google::protobuf::Any* rsp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(rsp_);
-  }
-  if (rsp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(rsp));
-    if (message_arena != submessage_arena) {
-      rsp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, rsp, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  rsp_ = rsp;
-  // @@protoc_insertion_point(field_set_allocated:RspMsg.rsp)
-}
-
-// -------------------------------------------------------------------
-
-// TrapMsg
-
-// .MsgType type = 1;
-inline void TrapMsg::clear_type() {
-  type_ = 0;
-}
-inline ::MsgType TrapMsg::_internal_type() const {
-  return static_cast< ::MsgType >(type_);
-}
-inline ::MsgType TrapMsg::type() const {
-  // @@protoc_insertion_point(field_get:TrapMsg.type)
-  return _internal_type();
-}
-inline void TrapMsg::_internal_set_type(::MsgType value) {
-  
-  type_ = value;
-}
-inline void TrapMsg::set_type(::MsgType value) {
-  _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:TrapMsg.type)
-}
-
-// .google.protobuf.Any field = 2;
-inline bool TrapMsg::_internal_has_field() const {
-  return this != internal_default_instance() && field_ != nullptr;
-}
-inline bool TrapMsg::has_field() const {
-  return _internal_has_field();
-}
-inline const ::google::protobuf::Any& TrapMsg::_internal_field() const {
-  const ::google::protobuf::Any* p = field_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Any&>(
-      ::google::protobuf::_Any_default_instance_);
-}
-inline const ::google::protobuf::Any& TrapMsg::field() const {
-  // @@protoc_insertion_point(field_get:TrapMsg.field)
-  return _internal_field();
-}
-inline void TrapMsg::unsafe_arena_set_allocated_field(
-    ::google::protobuf::Any* field) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(field_);
-  }
-  field_ = field;
-  if (field) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:TrapMsg.field)
-}
-inline ::google::protobuf::Any* TrapMsg::release_field() {
-  
-  ::google::protobuf::Any* temp = field_;
-  field_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::google::protobuf::Any* TrapMsg::unsafe_arena_release_field() {
-  // @@protoc_insertion_point(field_release:TrapMsg.field)
-  
-  ::google::protobuf::Any* temp = field_;
-  field_ = nullptr;
-  return temp;
-}
-inline ::google::protobuf::Any* TrapMsg::_internal_mutable_field() {
-  
-  if (field_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf::Any>(GetArenaForAllocation());
-    field_ = p;
-  }
-  return field_;
-}
-inline ::google::protobuf::Any* TrapMsg::mutable_field() {
-  ::google::protobuf::Any* _msg = _internal_mutable_field();
-  // @@protoc_insertion_point(field_mutable:TrapMsg.field)
-  return _msg;
-}
-inline void TrapMsg::set_allocated_field(::google::protobuf::Any* field) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(field_);
-  }
-  if (field) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(field));
-    if (message_arena != submessage_arena) {
-      field = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, field, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  field_ = field;
-  // @@protoc_insertion_point(field_set_allocated:TrapMsg.field)
-}
-
-// -------------------------------------------------------------------
-
-// NotifyMsg
-
-// .MsgType type = 1;
-inline void NotifyMsg::clear_type() {
-  type_ = 0;
-}
-inline ::MsgType NotifyMsg::_internal_type() const {
-  return static_cast< ::MsgType >(type_);
-}
-inline ::MsgType NotifyMsg::type() const {
-  // @@protoc_insertion_point(field_get:NotifyMsg.type)
-  return _internal_type();
-}
-inline void NotifyMsg::_internal_set_type(::MsgType value) {
-  
-  type_ = value;
-}
-inline void NotifyMsg::set_type(::MsgType value) {
-  _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:NotifyMsg.type)
-}
-
 // .google.protobuf.Any filed = 2;
-inline bool NotifyMsg::_internal_has_filed() const {
+inline bool RspMsg::_internal_has_filed() const {
   return this != internal_default_instance() && filed_ != nullptr;
 }
-inline bool NotifyMsg::has_filed() const {
+inline bool RspMsg::has_filed() const {
   return _internal_has_filed();
 }
-inline const ::google::protobuf::Any& NotifyMsg::_internal_filed() const {
+inline const ::google::protobuf::Any& RspMsg::_internal_filed() const {
   const ::google::protobuf::Any* p = filed_;
   return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Any&>(
       ::google::protobuf::_Any_default_instance_);
 }
-inline const ::google::protobuf::Any& NotifyMsg::filed() const {
-  // @@protoc_insertion_point(field_get:NotifyMsg.filed)
+inline const ::google::protobuf::Any& RspMsg::filed() const {
+  // @@protoc_insertion_point(field_get:RspMsg.filed)
   return _internal_filed();
 }
-inline void NotifyMsg::unsafe_arena_set_allocated_filed(
+inline void RspMsg::unsafe_arena_set_allocated_filed(
     ::google::protobuf::Any* filed) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(filed_);
@@ -1637,9 +934,9 @@ inline void NotifyMsg::unsafe_arena_set_allocated_filed(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NotifyMsg.filed)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:RspMsg.filed)
 }
-inline ::google::protobuf::Any* NotifyMsg::release_filed() {
+inline ::google::protobuf::Any* RspMsg::release_filed() {
   
   ::google::protobuf::Any* temp = filed_;
   filed_ = nullptr;
@@ -1654,14 +951,14 @@ inline ::google::protobuf::Any* NotifyMsg::release_filed() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::google::protobuf::Any* NotifyMsg::unsafe_arena_release_filed() {
-  // @@protoc_insertion_point(field_release:NotifyMsg.filed)
+inline ::google::protobuf::Any* RspMsg::unsafe_arena_release_filed() {
+  // @@protoc_insertion_point(field_release:RspMsg.filed)
   
   ::google::protobuf::Any* temp = filed_;
   filed_ = nullptr;
   return temp;
 }
-inline ::google::protobuf::Any* NotifyMsg::_internal_mutable_filed() {
+inline ::google::protobuf::Any* RspMsg::_internal_mutable_filed() {
   
   if (filed_ == nullptr) {
     auto* p = CreateMaybeMessage<::google::protobuf::Any>(GetArenaForAllocation());
@@ -1669,12 +966,12 @@ inline ::google::protobuf::Any* NotifyMsg::_internal_mutable_filed() {
   }
   return filed_;
 }
-inline ::google::protobuf::Any* NotifyMsg::mutable_filed() {
+inline ::google::protobuf::Any* RspMsg::mutable_filed() {
   ::google::protobuf::Any* _msg = _internal_mutable_filed();
-  // @@protoc_insertion_point(field_mutable:NotifyMsg.filed)
+  // @@protoc_insertion_point(field_mutable:RspMsg.filed)
   return _msg;
 }
-inline void NotifyMsg::set_allocated_filed(::google::protobuf::Any* filed) {
+inline void RspMsg::set_allocated_filed(::google::protobuf::Any* filed) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(filed_);
@@ -1693,32 +990,32 @@ inline void NotifyMsg::set_allocated_filed(::google::protobuf::Any* filed) {
     
   }
   filed_ = filed;
-  // @@protoc_insertion_point(field_set_allocated:NotifyMsg.filed)
+  // @@protoc_insertion_point(field_set_allocated:RspMsg.filed)
 }
 
 // .RspInfo rspInfo = 3;
-inline bool NotifyMsg::_internal_has_rspinfo() const {
+inline bool RspMsg::_internal_has_rspinfo() const {
   return this != internal_default_instance() && rspinfo_ != nullptr;
 }
-inline bool NotifyMsg::has_rspinfo() const {
+inline bool RspMsg::has_rspinfo() const {
   return _internal_has_rspinfo();
 }
-inline void NotifyMsg::clear_rspinfo() {
+inline void RspMsg::clear_rspinfo() {
   if (GetArenaForAllocation() == nullptr && rspinfo_ != nullptr) {
     delete rspinfo_;
   }
   rspinfo_ = nullptr;
 }
-inline const ::RspInfo& NotifyMsg::_internal_rspinfo() const {
+inline const ::RspInfo& RspMsg::_internal_rspinfo() const {
   const ::RspInfo* p = rspinfo_;
   return p != nullptr ? *p : reinterpret_cast<const ::RspInfo&>(
       ::_RspInfo_default_instance_);
 }
-inline const ::RspInfo& NotifyMsg::rspinfo() const {
-  // @@protoc_insertion_point(field_get:NotifyMsg.rspInfo)
+inline const ::RspInfo& RspMsg::rspinfo() const {
+  // @@protoc_insertion_point(field_get:RspMsg.rspInfo)
   return _internal_rspinfo();
 }
-inline void NotifyMsg::unsafe_arena_set_allocated_rspinfo(
+inline void RspMsg::unsafe_arena_set_allocated_rspinfo(
     ::RspInfo* rspinfo) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(rspinfo_);
@@ -1729,9 +1026,9 @@ inline void NotifyMsg::unsafe_arena_set_allocated_rspinfo(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NotifyMsg.rspInfo)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:RspMsg.rspInfo)
 }
-inline ::RspInfo* NotifyMsg::release_rspinfo() {
+inline ::RspInfo* RspMsg::release_rspinfo() {
   
   ::RspInfo* temp = rspinfo_;
   rspinfo_ = nullptr;
@@ -1746,14 +1043,14 @@ inline ::RspInfo* NotifyMsg::release_rspinfo() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::RspInfo* NotifyMsg::unsafe_arena_release_rspinfo() {
-  // @@protoc_insertion_point(field_release:NotifyMsg.rspInfo)
+inline ::RspInfo* RspMsg::unsafe_arena_release_rspinfo() {
+  // @@protoc_insertion_point(field_release:RspMsg.rspInfo)
   
   ::RspInfo* temp = rspinfo_;
   rspinfo_ = nullptr;
   return temp;
 }
-inline ::RspInfo* NotifyMsg::_internal_mutable_rspinfo() {
+inline ::RspInfo* RspMsg::_internal_mutable_rspinfo() {
   
   if (rspinfo_ == nullptr) {
     auto* p = CreateMaybeMessage<::RspInfo>(GetArenaForAllocation());
@@ -1761,12 +1058,12 @@ inline ::RspInfo* NotifyMsg::_internal_mutable_rspinfo() {
   }
   return rspinfo_;
 }
-inline ::RspInfo* NotifyMsg::mutable_rspinfo() {
+inline ::RspInfo* RspMsg::mutable_rspinfo() {
   ::RspInfo* _msg = _internal_mutable_rspinfo();
-  // @@protoc_insertion_point(field_mutable:NotifyMsg.rspInfo)
+  // @@protoc_insertion_point(field_mutable:RspMsg.rspInfo)
   return _msg;
 }
-inline void NotifyMsg::set_allocated_rspinfo(::RspInfo* rspinfo) {
+inline void RspMsg::set_allocated_rspinfo(::RspInfo* rspinfo) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete rspinfo_;
@@ -1783,58 +1080,52 @@ inline void NotifyMsg::set_allocated_rspinfo(::RspInfo* rspinfo) {
     
   }
   rspinfo_ = rspinfo;
-  // @@protoc_insertion_point(field_set_allocated:NotifyMsg.rspInfo)
+  // @@protoc_insertion_point(field_set_allocated:RspMsg.rspInfo)
 }
 
 // int32 request_id = 4;
-inline void NotifyMsg::clear_request_id() {
+inline void RspMsg::clear_request_id() {
   request_id_ = 0;
 }
-inline int32_t NotifyMsg::_internal_request_id() const {
+inline int32_t RspMsg::_internal_request_id() const {
   return request_id_;
 }
-inline int32_t NotifyMsg::request_id() const {
-  // @@protoc_insertion_point(field_get:NotifyMsg.request_id)
+inline int32_t RspMsg::request_id() const {
+  // @@protoc_insertion_point(field_get:RspMsg.request_id)
   return _internal_request_id();
 }
-inline void NotifyMsg::_internal_set_request_id(int32_t value) {
+inline void RspMsg::_internal_set_request_id(int32_t value) {
   
   request_id_ = value;
 }
-inline void NotifyMsg::set_request_id(int32_t value) {
+inline void RspMsg::set_request_id(int32_t value) {
   _internal_set_request_id(value);
-  // @@protoc_insertion_point(field_set:NotifyMsg.request_id)
+  // @@protoc_insertion_point(field_set:RspMsg.request_id)
 }
 
 // bool isLast = 5;
-inline void NotifyMsg::clear_islast() {
+inline void RspMsg::clear_islast() {
   islast_ = false;
 }
-inline bool NotifyMsg::_internal_islast() const {
+inline bool RspMsg::_internal_islast() const {
   return islast_;
 }
-inline bool NotifyMsg::islast() const {
-  // @@protoc_insertion_point(field_get:NotifyMsg.isLast)
+inline bool RspMsg::islast() const {
+  // @@protoc_insertion_point(field_get:RspMsg.isLast)
   return _internal_islast();
 }
-inline void NotifyMsg::_internal_set_islast(bool value) {
+inline void RspMsg::_internal_set_islast(bool value) {
   
   islast_ = value;
 }
-inline void NotifyMsg::set_islast(bool value) {
+inline void RspMsg::set_islast(bool value) {
   _internal_set_islast(value);
-  // @@protoc_insertion_point(field_set:NotifyMsg.isLast)
+  // @@protoc_insertion_point(field_set:RspMsg.isLast)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

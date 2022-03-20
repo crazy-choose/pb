@@ -25,98 +25,52 @@
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
-class StreamService final {
+class CppStream final {
  public:
   static constexpr char const* service_full_name() {
-    return "StreamService";
+    return "CppStream";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    std::unique_ptr< ::grpc::ClientWriterInterface< ::ReqMsg>> Request(::grpc::ClientContext* context, ::RspMsg* response) {
-      return std::unique_ptr< ::grpc::ClientWriterInterface< ::ReqMsg>>(RequestRaw(context, response));
+    std::unique_ptr< ::grpc::ClientWriterInterface< ::ReqMsg>> Dual(::grpc::ClientContext* context, ::RspMsg* response) {
+      return std::unique_ptr< ::grpc::ClientWriterInterface< ::ReqMsg>>(DualRaw(context, response));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>> AsyncRequest(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>>(AsyncRequestRaw(context, response, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>> AsyncDual(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>>(AsyncDualRaw(context, response, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>> PrepareAsyncRequest(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>>(PrepareAsyncRequestRaw(context, response, cq));
-    }
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::NotifyMsg, ::NetResult>> Notify(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::NotifyMsg, ::NetResult>>(NotifyRaw(context));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::NotifyMsg, ::NetResult>> AsyncNotify(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::NotifyMsg, ::NetResult>>(AsyncNotifyRaw(context, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::NotifyMsg, ::NetResult>> PrepareAsyncNotify(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::NotifyMsg, ::NetResult>>(PrepareAsyncNotifyRaw(context, cq));
-    }
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::TrapMsg, ::NetResult>> SendTrap(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::TrapMsg, ::NetResult>>(SendTrapRaw(context));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::TrapMsg, ::NetResult>> AsyncSendTrap(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::TrapMsg, ::NetResult>>(AsyncSendTrapRaw(context, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::TrapMsg, ::NetResult>> PrepareAsyncSendTrap(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::TrapMsg, ::NetResult>>(PrepareAsyncSendTrapRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>> PrepareAsyncDual(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ReqMsg>>(PrepareAsyncDualRaw(context, response, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void Request(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::ClientWriteReactor< ::ReqMsg>* reactor) = 0;
-      virtual void Notify(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::NotifyMsg,::NetResult>* reactor) = 0;
-      virtual void SendTrap(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::TrapMsg,::NetResult>* reactor) = 0;
+      virtual void Dual(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::ClientWriteReactor< ::ReqMsg>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientWriterInterface< ::ReqMsg>* RequestRaw(::grpc::ClientContext* context, ::RspMsg* response) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::ReqMsg>* AsyncRequestRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::ReqMsg>* PrepareAsyncRequestRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientReaderWriterInterface< ::NotifyMsg, ::NetResult>* NotifyRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::NotifyMsg, ::NetResult>* AsyncNotifyRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::NotifyMsg, ::NetResult>* PrepareAsyncNotifyRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientReaderWriterInterface< ::TrapMsg, ::NetResult>* SendTrapRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::TrapMsg, ::NetResult>* AsyncSendTrapRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::TrapMsg, ::NetResult>* PrepareAsyncSendTrapRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientWriterInterface< ::ReqMsg>* DualRaw(::grpc::ClientContext* context, ::RspMsg* response) = 0;
+    virtual ::grpc::ClientAsyncWriterInterface< ::ReqMsg>* AsyncDualRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncWriterInterface< ::ReqMsg>* PrepareAsyncDualRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientWriter< ::ReqMsg>> Request(::grpc::ClientContext* context, ::RspMsg* response) {
-      return std::unique_ptr< ::grpc::ClientWriter< ::ReqMsg>>(RequestRaw(context, response));
+    std::unique_ptr< ::grpc::ClientWriter< ::ReqMsg>> Dual(::grpc::ClientContext* context, ::RspMsg* response) {
+      return std::unique_ptr< ::grpc::ClientWriter< ::ReqMsg>>(DualRaw(context, response));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>> AsyncRequest(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>>(AsyncRequestRaw(context, response, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>> AsyncDual(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>>(AsyncDualRaw(context, response, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>> PrepareAsyncRequest(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>>(PrepareAsyncRequestRaw(context, response, cq));
-    }
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::NotifyMsg, ::NetResult>> Notify(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::NotifyMsg, ::NetResult>>(NotifyRaw(context));
-    }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::NotifyMsg, ::NetResult>> AsyncNotify(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::NotifyMsg, ::NetResult>>(AsyncNotifyRaw(context, cq, tag));
-    }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::NotifyMsg, ::NetResult>> PrepareAsyncNotify(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::NotifyMsg, ::NetResult>>(PrepareAsyncNotifyRaw(context, cq));
-    }
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::TrapMsg, ::NetResult>> SendTrap(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::TrapMsg, ::NetResult>>(SendTrapRaw(context));
-    }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::TrapMsg, ::NetResult>> AsyncSendTrap(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::TrapMsg, ::NetResult>>(AsyncSendTrapRaw(context, cq, tag));
-    }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::TrapMsg, ::NetResult>> PrepareAsyncSendTrap(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::TrapMsg, ::NetResult>>(PrepareAsyncSendTrapRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>> PrepareAsyncDual(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ReqMsg>>(PrepareAsyncDualRaw(context, response, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void Request(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::ClientWriteReactor< ::ReqMsg>* reactor) override;
-      void Notify(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::NotifyMsg,::NetResult>* reactor) override;
-      void SendTrap(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::TrapMsg,::NetResult>* reactor) override;
+      void Dual(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::ClientWriteReactor< ::ReqMsg>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -128,18 +82,10 @@ class StreamService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientWriter< ::ReqMsg>* RequestRaw(::grpc::ClientContext* context, ::RspMsg* response) override;
-    ::grpc::ClientAsyncWriter< ::ReqMsg>* AsyncRequestRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncWriter< ::ReqMsg>* PrepareAsyncRequestRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientReaderWriter< ::NotifyMsg, ::NetResult>* NotifyRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::NotifyMsg, ::NetResult>* AsyncNotifyRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::NotifyMsg, ::NetResult>* PrepareAsyncNotifyRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientReaderWriter< ::TrapMsg, ::NetResult>* SendTrapRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::TrapMsg, ::NetResult>* AsyncSendTrapRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::TrapMsg, ::NetResult>* PrepareAsyncSendTrapRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_Request_;
-    const ::grpc::internal::RpcMethod rpcmethod_Notify_;
-    const ::grpc::internal::RpcMethod rpcmethod_SendTrap_;
+    ::grpc::ClientWriter< ::ReqMsg>* DualRaw(::grpc::ClientContext* context, ::RspMsg* response) override;
+    ::grpc::ClientAsyncWriter< ::ReqMsg>* AsyncDualRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncWriter< ::ReqMsg>* PrepareAsyncDualRaw(::grpc::ClientContext* context, ::RspMsg* response, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_Dual_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -147,319 +93,111 @@ class StreamService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status Request(::grpc::ServerContext* context, ::grpc::ServerReader< ::ReqMsg>* reader, ::RspMsg* response);
-    virtual ::grpc::Status Notify(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::NetResult, ::NotifyMsg>* stream);
-    virtual ::grpc::Status SendTrap(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::NetResult, ::TrapMsg>* stream);
+    virtual ::grpc::Status Dual(::grpc::ServerContext* context, ::grpc::ServerReader< ::ReqMsg>* reader, ::RspMsg* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_Request : public BaseClass {
+  class WithAsyncMethod_Dual : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_Request() {
+    WithAsyncMethod_Dual() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_Request() override {
+    ~WithAsyncMethod_Dual() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
+    ::grpc::Status Dual(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestRequest(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::RspMsg, ::ReqMsg>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDual(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::RspMsg, ::ReqMsg>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncClientStreaming(0, context, reader, new_call_cq, notification_cq, tag);
     }
   };
+  typedef WithAsyncMethod_Dual<Service > AsyncService;
   template <class BaseClass>
-  class WithAsyncMethod_Notify : public BaseClass {
+  class WithCallbackMethod_Dual : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_Notify() {
-      ::grpc::Service::MarkMethodAsync(1);
-    }
-    ~WithAsyncMethod_Notify() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Notify(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::NotifyMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestNotify(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::NetResult, ::NotifyMsg>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_SendTrap : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_SendTrap() {
-      ::grpc::Service::MarkMethodAsync(2);
-    }
-    ~WithAsyncMethod_SendTrap() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status SendTrap(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::TrapMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestSendTrap(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::NetResult, ::TrapMsg>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncBidiStreaming(2, context, stream, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_Request<WithAsyncMethod_Notify<WithAsyncMethod_SendTrap<Service > > > AsyncService;
-  template <class BaseClass>
-  class WithCallbackMethod_Request : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_Request() {
+    WithCallbackMethod_Dual() {
       ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackClientStreamingHandler< ::ReqMsg, ::RspMsg>(
             [this](
-                   ::grpc::CallbackServerContext* context, ::RspMsg* response) { return this->Request(context, response); }));
+                   ::grpc::CallbackServerContext* context, ::RspMsg* response) { return this->Dual(context, response); }));
     }
-    ~WithCallbackMethod_Request() override {
+    ~WithCallbackMethod_Dual() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
+    ::grpc::Status Dual(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerReadReactor< ::ReqMsg>* Request(
+    virtual ::grpc::ServerReadReactor< ::ReqMsg>* Dual(
       ::grpc::CallbackServerContext* /*context*/, ::RspMsg* /*response*/)  { return nullptr; }
   };
-  template <class BaseClass>
-  class WithCallbackMethod_Notify : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_Notify() {
-      ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackBidiHandler< ::NotifyMsg, ::NetResult>(
-            [this](
-                   ::grpc::CallbackServerContext* context) { return this->Notify(context); }));
-    }
-    ~WithCallbackMethod_Notify() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Notify(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::NotifyMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerBidiReactor< ::NotifyMsg, ::NetResult>* Notify(
-      ::grpc::CallbackServerContext* /*context*/)
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithCallbackMethod_SendTrap : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_SendTrap() {
-      ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackBidiHandler< ::TrapMsg, ::NetResult>(
-            [this](
-                   ::grpc::CallbackServerContext* context) { return this->SendTrap(context); }));
-    }
-    ~WithCallbackMethod_SendTrap() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status SendTrap(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::TrapMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerBidiReactor< ::TrapMsg, ::NetResult>* SendTrap(
-      ::grpc::CallbackServerContext* /*context*/)
-      { return nullptr; }
-  };
-  typedef WithCallbackMethod_Request<WithCallbackMethod_Notify<WithCallbackMethod_SendTrap<Service > > > CallbackService;
+  typedef WithCallbackMethod_Dual<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_Request : public BaseClass {
+  class WithGenericMethod_Dual : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_Request() {
+    WithGenericMethod_Dual() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_Request() override {
+    ~WithGenericMethod_Dual() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
+    ::grpc::Status Dual(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_Notify : public BaseClass {
+  class WithRawMethod_Dual : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_Notify() {
-      ::grpc::Service::MarkMethodGeneric(1);
-    }
-    ~WithGenericMethod_Notify() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Notify(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::NotifyMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_SendTrap : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_SendTrap() {
-      ::grpc::Service::MarkMethodGeneric(2);
-    }
-    ~WithGenericMethod_SendTrap() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status SendTrap(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::TrapMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_Request : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_Request() {
+    WithRawMethod_Dual() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_Request() override {
+    ~WithRawMethod_Dual() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
+    ::grpc::Status Dual(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestRequest(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDual(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncClientStreaming(0, context, reader, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_Notify : public BaseClass {
+  class WithRawCallbackMethod_Dual : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_Notify() {
-      ::grpc::Service::MarkMethodRaw(1);
-    }
-    ~WithRawMethod_Notify() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Notify(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::NotifyMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestNotify(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_SendTrap : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_SendTrap() {
-      ::grpc::Service::MarkMethodRaw(2);
-    }
-    ~WithRawMethod_SendTrap() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status SendTrap(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::TrapMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestSendTrap(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncBidiStreaming(2, context, stream, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_Request : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_Request() {
+    WithRawCallbackMethod_Dual() {
       ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, ::grpc::ByteBuffer* response) { return this->Request(context, response); }));
+                   ::grpc::CallbackServerContext* context, ::grpc::ByteBuffer* response) { return this->Dual(context, response); }));
     }
-    ~WithRawCallbackMethod_Request() override {
+    ~WithRawCallbackMethod_Dual() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
+    ::grpc::Status Dual(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ReqMsg>* /*reader*/, ::RspMsg* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerReadReactor< ::grpc::ByteBuffer>* Request(
+    virtual ::grpc::ServerReadReactor< ::grpc::ByteBuffer>* Dual(
       ::grpc::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_Notify : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_Notify() {
-      ::grpc::Service::MarkMethodRawCallback(1,
-          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context) { return this->Notify(context); }));
-    }
-    ~WithRawCallbackMethod_Notify() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Notify(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::NotifyMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Notify(
-      ::grpc::CallbackServerContext* /*context*/)
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_SendTrap : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_SendTrap() {
-      ::grpc::Service::MarkMethodRawCallback(2,
-          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context) { return this->SendTrap(context); }));
-    }
-    ~WithRawCallbackMethod_SendTrap() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status SendTrap(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::NetResult, ::TrapMsg>* /*stream*/)  override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SendTrap(
-      ::grpc::CallbackServerContext* /*context*/)
-      { return nullptr; }
   };
   typedef Service StreamedUnaryService;
   typedef Service SplitStreamedService;
