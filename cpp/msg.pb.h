@@ -55,19 +55,19 @@ struct TableStruct_msg_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_msg_2eproto;
-class ReqMsg;
-struct ReqMsgDefaultTypeInternal;
-extern ReqMsgDefaultTypeInternal _ReqMsg_default_instance_;
 class RspInfo;
 struct RspInfoDefaultTypeInternal;
 extern RspInfoDefaultTypeInternal _RspInfo_default_instance_;
-class RspMsg;
-struct RspMsgDefaultTypeInternal;
-extern RspMsgDefaultTypeInternal _RspMsg_default_instance_;
+class StreamReqData;
+struct StreamReqDataDefaultTypeInternal;
+extern StreamReqDataDefaultTypeInternal _StreamReqData_default_instance_;
+class StreamResData;
+struct StreamResDataDefaultTypeInternal;
+extern StreamResDataDefaultTypeInternal _StreamResData_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
-template<> ::ReqMsg* Arena::CreateMaybeMessage<::ReqMsg>(Arena*);
 template<> ::RspInfo* Arena::CreateMaybeMessage<::RspInfo>(Arena*);
-template<> ::RspMsg* Arena::CreateMaybeMessage<::RspMsg>(Arena*);
+template<> ::StreamReqData* Arena::CreateMaybeMessage<::StreamReqData>(Arena*);
+template<> ::StreamResData* Arena::CreateMaybeMessage<::StreamResData>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 
 enum MsgType : int {
@@ -288,24 +288,24 @@ class RspInfo final :
 };
 // -------------------------------------------------------------------
 
-class ReqMsg final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ReqMsg) */ {
+class StreamReqData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StreamReqData) */ {
  public:
-  inline ReqMsg() : ReqMsg(nullptr) {}
-  ~ReqMsg() override;
-  explicit constexpr ReqMsg(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline StreamReqData() : StreamReqData(nullptr) {}
+  ~StreamReqData() override;
+  explicit constexpr StreamReqData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  ReqMsg(const ReqMsg& from);
-  ReqMsg(ReqMsg&& from) noexcept
-    : ReqMsg() {
+  StreamReqData(const StreamReqData& from);
+  StreamReqData(StreamReqData&& from) noexcept
+    : StreamReqData() {
     *this = ::std::move(from);
   }
 
-  inline ReqMsg& operator=(const ReqMsg& from) {
+  inline StreamReqData& operator=(const StreamReqData& from) {
     CopyFrom(from);
     return *this;
   }
-  inline ReqMsg& operator=(ReqMsg&& from) noexcept {
+  inline StreamReqData& operator=(StreamReqData&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -328,20 +328,20 @@ class ReqMsg final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const ReqMsg& default_instance() {
+  static const StreamReqData& default_instance() {
     return *internal_default_instance();
   }
-  static inline const ReqMsg* internal_default_instance() {
-    return reinterpret_cast<const ReqMsg*>(
-               &_ReqMsg_default_instance_);
+  static inline const StreamReqData* internal_default_instance() {
+    return reinterpret_cast<const StreamReqData*>(
+               &_StreamReqData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(ReqMsg& a, ReqMsg& b) {
+  friend void swap(StreamReqData& a, StreamReqData& b) {
     a.Swap(&b);
   }
-  inline void Swap(ReqMsg* other) {
+  inline void Swap(StreamReqData* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -354,7 +354,7 @@ class ReqMsg final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(ReqMsg* other) {
+  void UnsafeArenaSwap(StreamReqData* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -362,13 +362,13 @@ class ReqMsg final :
 
   // implements Message ----------------------------------------------
 
-  ReqMsg* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<ReqMsg>(arena);
+  StreamReqData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StreamReqData>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const ReqMsg& from);
+  void CopyFrom(const StreamReqData& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const ReqMsg& from);
+  void MergeFrom(const StreamReqData& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -385,15 +385,15 @@ class ReqMsg final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(ReqMsg* other);
+  void InternalSwap(StreamReqData* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ReqMsg";
+    return "StreamReqData";
   }
   protected:
-  explicit ReqMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit StreamReqData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -450,7 +450,7 @@ class ReqMsg final :
   void _internal_set_request_id(int32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:ReqMsg)
+  // @@protoc_insertion_point(class_scope:StreamReqData)
  private:
   class _Internal;
 
@@ -465,24 +465,24 @@ class ReqMsg final :
 };
 // -------------------------------------------------------------------
 
-class RspMsg final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:RspMsg) */ {
+class StreamResData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StreamResData) */ {
  public:
-  inline RspMsg() : RspMsg(nullptr) {}
-  ~RspMsg() override;
-  explicit constexpr RspMsg(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline StreamResData() : StreamResData(nullptr) {}
+  ~StreamResData() override;
+  explicit constexpr StreamResData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  RspMsg(const RspMsg& from);
-  RspMsg(RspMsg&& from) noexcept
-    : RspMsg() {
+  StreamResData(const StreamResData& from);
+  StreamResData(StreamResData&& from) noexcept
+    : StreamResData() {
     *this = ::std::move(from);
   }
 
-  inline RspMsg& operator=(const RspMsg& from) {
+  inline StreamResData& operator=(const StreamResData& from) {
     CopyFrom(from);
     return *this;
   }
-  inline RspMsg& operator=(RspMsg&& from) noexcept {
+  inline StreamResData& operator=(StreamResData&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -505,20 +505,20 @@ class RspMsg final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const RspMsg& default_instance() {
+  static const StreamResData& default_instance() {
     return *internal_default_instance();
   }
-  static inline const RspMsg* internal_default_instance() {
-    return reinterpret_cast<const RspMsg*>(
-               &_RspMsg_default_instance_);
+  static inline const StreamResData* internal_default_instance() {
+    return reinterpret_cast<const StreamResData*>(
+               &_StreamResData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(RspMsg& a, RspMsg& b) {
+  friend void swap(StreamResData& a, StreamResData& b) {
     a.Swap(&b);
   }
-  inline void Swap(RspMsg* other) {
+  inline void Swap(StreamResData* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -531,7 +531,7 @@ class RspMsg final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(RspMsg* other) {
+  void UnsafeArenaSwap(StreamResData* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -539,13 +539,13 @@ class RspMsg final :
 
   // implements Message ----------------------------------------------
 
-  RspMsg* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<RspMsg>(arena);
+  StreamResData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StreamResData>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const RspMsg& from);
+  void CopyFrom(const StreamResData& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const RspMsg& from);
+  void MergeFrom(const StreamResData& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -562,15 +562,15 @@ class RspMsg final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(RspMsg* other);
+  void InternalSwap(StreamResData* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "RspMsg";
+    return "StreamResData";
   }
   protected:
-  explicit RspMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit StreamResData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -656,7 +656,7 @@ class RspMsg final :
   void _internal_set_islast(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:RspMsg)
+  // @@protoc_insertion_point(class_scope:StreamResData)
  private:
   class _Internal;
 
@@ -755,65 +755,65 @@ inline void RspInfo::set_allocated_error_msg(std::string* error_msg) {
 
 // -------------------------------------------------------------------
 
-// ReqMsg
+// StreamReqData
 
 // .MsgType type = 1;
-inline void ReqMsg::clear_type() {
+inline void StreamReqData::clear_type() {
   type_ = 0;
 }
-inline ::MsgType ReqMsg::_internal_type() const {
+inline ::MsgType StreamReqData::_internal_type() const {
   return static_cast< ::MsgType >(type_);
 }
-inline ::MsgType ReqMsg::type() const {
-  // @@protoc_insertion_point(field_get:ReqMsg.type)
+inline ::MsgType StreamReqData::type() const {
+  // @@protoc_insertion_point(field_get:StreamReqData.type)
   return _internal_type();
 }
-inline void ReqMsg::_internal_set_type(::MsgType value) {
+inline void StreamReqData::_internal_set_type(::MsgType value) {
   
   type_ = value;
 }
-inline void ReqMsg::set_type(::MsgType value) {
+inline void StreamReqData::set_type(::MsgType value) {
   _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:ReqMsg.type)
+  // @@protoc_insertion_point(field_set:StreamReqData.type)
 }
 
 // int32 request_id = 2;
-inline void ReqMsg::clear_request_id() {
+inline void StreamReqData::clear_request_id() {
   request_id_ = 0;
 }
-inline int32_t ReqMsg::_internal_request_id() const {
+inline int32_t StreamReqData::_internal_request_id() const {
   return request_id_;
 }
-inline int32_t ReqMsg::request_id() const {
-  // @@protoc_insertion_point(field_get:ReqMsg.request_id)
+inline int32_t StreamReqData::request_id() const {
+  // @@protoc_insertion_point(field_get:StreamReqData.request_id)
   return _internal_request_id();
 }
-inline void ReqMsg::_internal_set_request_id(int32_t value) {
+inline void StreamReqData::_internal_set_request_id(int32_t value) {
   
   request_id_ = value;
 }
-inline void ReqMsg::set_request_id(int32_t value) {
+inline void StreamReqData::set_request_id(int32_t value) {
   _internal_set_request_id(value);
-  // @@protoc_insertion_point(field_set:ReqMsg.request_id)
+  // @@protoc_insertion_point(field_set:StreamReqData.request_id)
 }
 
 // .google.protobuf.Any req = 3;
-inline bool ReqMsg::_internal_has_req() const {
+inline bool StreamReqData::_internal_has_req() const {
   return this != internal_default_instance() && req_ != nullptr;
 }
-inline bool ReqMsg::has_req() const {
+inline bool StreamReqData::has_req() const {
   return _internal_has_req();
 }
-inline const ::google::protobuf::Any& ReqMsg::_internal_req() const {
+inline const ::google::protobuf::Any& StreamReqData::_internal_req() const {
   const ::google::protobuf::Any* p = req_;
   return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Any&>(
       ::google::protobuf::_Any_default_instance_);
 }
-inline const ::google::protobuf::Any& ReqMsg::req() const {
-  // @@protoc_insertion_point(field_get:ReqMsg.req)
+inline const ::google::protobuf::Any& StreamReqData::req() const {
+  // @@protoc_insertion_point(field_get:StreamReqData.req)
   return _internal_req();
 }
-inline void ReqMsg::unsafe_arena_set_allocated_req(
+inline void StreamReqData::unsafe_arena_set_allocated_req(
     ::google::protobuf::Any* req) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(req_);
@@ -824,9 +824,9 @@ inline void ReqMsg::unsafe_arena_set_allocated_req(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:ReqMsg.req)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StreamReqData.req)
 }
-inline ::google::protobuf::Any* ReqMsg::release_req() {
+inline ::google::protobuf::Any* StreamReqData::release_req() {
   
   ::google::protobuf::Any* temp = req_;
   req_ = nullptr;
@@ -841,14 +841,14 @@ inline ::google::protobuf::Any* ReqMsg::release_req() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::google::protobuf::Any* ReqMsg::unsafe_arena_release_req() {
-  // @@protoc_insertion_point(field_release:ReqMsg.req)
+inline ::google::protobuf::Any* StreamReqData::unsafe_arena_release_req() {
+  // @@protoc_insertion_point(field_release:StreamReqData.req)
   
   ::google::protobuf::Any* temp = req_;
   req_ = nullptr;
   return temp;
 }
-inline ::google::protobuf::Any* ReqMsg::_internal_mutable_req() {
+inline ::google::protobuf::Any* StreamReqData::_internal_mutable_req() {
   
   if (req_ == nullptr) {
     auto* p = CreateMaybeMessage<::google::protobuf::Any>(GetArenaForAllocation());
@@ -856,12 +856,12 @@ inline ::google::protobuf::Any* ReqMsg::_internal_mutable_req() {
   }
   return req_;
 }
-inline ::google::protobuf::Any* ReqMsg::mutable_req() {
+inline ::google::protobuf::Any* StreamReqData::mutable_req() {
   ::google::protobuf::Any* _msg = _internal_mutable_req();
-  // @@protoc_insertion_point(field_mutable:ReqMsg.req)
+  // @@protoc_insertion_point(field_mutable:StreamReqData.req)
   return _msg;
 }
-inline void ReqMsg::set_allocated_req(::google::protobuf::Any* req) {
+inline void StreamReqData::set_allocated_req(::google::protobuf::Any* req) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(req_);
@@ -880,50 +880,50 @@ inline void ReqMsg::set_allocated_req(::google::protobuf::Any* req) {
     
   }
   req_ = req;
-  // @@protoc_insertion_point(field_set_allocated:ReqMsg.req)
+  // @@protoc_insertion_point(field_set_allocated:StreamReqData.req)
 }
 
 // -------------------------------------------------------------------
 
-// RspMsg
+// StreamResData
 
 // .MsgType type = 1;
-inline void RspMsg::clear_type() {
+inline void StreamResData::clear_type() {
   type_ = 0;
 }
-inline ::MsgType RspMsg::_internal_type() const {
+inline ::MsgType StreamResData::_internal_type() const {
   return static_cast< ::MsgType >(type_);
 }
-inline ::MsgType RspMsg::type() const {
-  // @@protoc_insertion_point(field_get:RspMsg.type)
+inline ::MsgType StreamResData::type() const {
+  // @@protoc_insertion_point(field_get:StreamResData.type)
   return _internal_type();
 }
-inline void RspMsg::_internal_set_type(::MsgType value) {
+inline void StreamResData::_internal_set_type(::MsgType value) {
   
   type_ = value;
 }
-inline void RspMsg::set_type(::MsgType value) {
+inline void StreamResData::set_type(::MsgType value) {
   _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:RspMsg.type)
+  // @@protoc_insertion_point(field_set:StreamResData.type)
 }
 
 // .google.protobuf.Any filed = 2;
-inline bool RspMsg::_internal_has_filed() const {
+inline bool StreamResData::_internal_has_filed() const {
   return this != internal_default_instance() && filed_ != nullptr;
 }
-inline bool RspMsg::has_filed() const {
+inline bool StreamResData::has_filed() const {
   return _internal_has_filed();
 }
-inline const ::google::protobuf::Any& RspMsg::_internal_filed() const {
+inline const ::google::protobuf::Any& StreamResData::_internal_filed() const {
   const ::google::protobuf::Any* p = filed_;
   return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Any&>(
       ::google::protobuf::_Any_default_instance_);
 }
-inline const ::google::protobuf::Any& RspMsg::filed() const {
-  // @@protoc_insertion_point(field_get:RspMsg.filed)
+inline const ::google::protobuf::Any& StreamResData::filed() const {
+  // @@protoc_insertion_point(field_get:StreamResData.filed)
   return _internal_filed();
 }
-inline void RspMsg::unsafe_arena_set_allocated_filed(
+inline void StreamResData::unsafe_arena_set_allocated_filed(
     ::google::protobuf::Any* filed) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(filed_);
@@ -934,9 +934,9 @@ inline void RspMsg::unsafe_arena_set_allocated_filed(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:RspMsg.filed)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StreamResData.filed)
 }
-inline ::google::protobuf::Any* RspMsg::release_filed() {
+inline ::google::protobuf::Any* StreamResData::release_filed() {
   
   ::google::protobuf::Any* temp = filed_;
   filed_ = nullptr;
@@ -951,14 +951,14 @@ inline ::google::protobuf::Any* RspMsg::release_filed() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::google::protobuf::Any* RspMsg::unsafe_arena_release_filed() {
-  // @@protoc_insertion_point(field_release:RspMsg.filed)
+inline ::google::protobuf::Any* StreamResData::unsafe_arena_release_filed() {
+  // @@protoc_insertion_point(field_release:StreamResData.filed)
   
   ::google::protobuf::Any* temp = filed_;
   filed_ = nullptr;
   return temp;
 }
-inline ::google::protobuf::Any* RspMsg::_internal_mutable_filed() {
+inline ::google::protobuf::Any* StreamResData::_internal_mutable_filed() {
   
   if (filed_ == nullptr) {
     auto* p = CreateMaybeMessage<::google::protobuf::Any>(GetArenaForAllocation());
@@ -966,12 +966,12 @@ inline ::google::protobuf::Any* RspMsg::_internal_mutable_filed() {
   }
   return filed_;
 }
-inline ::google::protobuf::Any* RspMsg::mutable_filed() {
+inline ::google::protobuf::Any* StreamResData::mutable_filed() {
   ::google::protobuf::Any* _msg = _internal_mutable_filed();
-  // @@protoc_insertion_point(field_mutable:RspMsg.filed)
+  // @@protoc_insertion_point(field_mutable:StreamResData.filed)
   return _msg;
 }
-inline void RspMsg::set_allocated_filed(::google::protobuf::Any* filed) {
+inline void StreamResData::set_allocated_filed(::google::protobuf::Any* filed) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(filed_);
@@ -990,32 +990,32 @@ inline void RspMsg::set_allocated_filed(::google::protobuf::Any* filed) {
     
   }
   filed_ = filed;
-  // @@protoc_insertion_point(field_set_allocated:RspMsg.filed)
+  // @@protoc_insertion_point(field_set_allocated:StreamResData.filed)
 }
 
 // .RspInfo rspInfo = 3;
-inline bool RspMsg::_internal_has_rspinfo() const {
+inline bool StreamResData::_internal_has_rspinfo() const {
   return this != internal_default_instance() && rspinfo_ != nullptr;
 }
-inline bool RspMsg::has_rspinfo() const {
+inline bool StreamResData::has_rspinfo() const {
   return _internal_has_rspinfo();
 }
-inline void RspMsg::clear_rspinfo() {
+inline void StreamResData::clear_rspinfo() {
   if (GetArenaForAllocation() == nullptr && rspinfo_ != nullptr) {
     delete rspinfo_;
   }
   rspinfo_ = nullptr;
 }
-inline const ::RspInfo& RspMsg::_internal_rspinfo() const {
+inline const ::RspInfo& StreamResData::_internal_rspinfo() const {
   const ::RspInfo* p = rspinfo_;
   return p != nullptr ? *p : reinterpret_cast<const ::RspInfo&>(
       ::_RspInfo_default_instance_);
 }
-inline const ::RspInfo& RspMsg::rspinfo() const {
-  // @@protoc_insertion_point(field_get:RspMsg.rspInfo)
+inline const ::RspInfo& StreamResData::rspinfo() const {
+  // @@protoc_insertion_point(field_get:StreamResData.rspInfo)
   return _internal_rspinfo();
 }
-inline void RspMsg::unsafe_arena_set_allocated_rspinfo(
+inline void StreamResData::unsafe_arena_set_allocated_rspinfo(
     ::RspInfo* rspinfo) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(rspinfo_);
@@ -1026,9 +1026,9 @@ inline void RspMsg::unsafe_arena_set_allocated_rspinfo(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:RspMsg.rspInfo)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StreamResData.rspInfo)
 }
-inline ::RspInfo* RspMsg::release_rspinfo() {
+inline ::RspInfo* StreamResData::release_rspinfo() {
   
   ::RspInfo* temp = rspinfo_;
   rspinfo_ = nullptr;
@@ -1043,14 +1043,14 @@ inline ::RspInfo* RspMsg::release_rspinfo() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::RspInfo* RspMsg::unsafe_arena_release_rspinfo() {
-  // @@protoc_insertion_point(field_release:RspMsg.rspInfo)
+inline ::RspInfo* StreamResData::unsafe_arena_release_rspinfo() {
+  // @@protoc_insertion_point(field_release:StreamResData.rspInfo)
   
   ::RspInfo* temp = rspinfo_;
   rspinfo_ = nullptr;
   return temp;
 }
-inline ::RspInfo* RspMsg::_internal_mutable_rspinfo() {
+inline ::RspInfo* StreamResData::_internal_mutable_rspinfo() {
   
   if (rspinfo_ == nullptr) {
     auto* p = CreateMaybeMessage<::RspInfo>(GetArenaForAllocation());
@@ -1058,12 +1058,12 @@ inline ::RspInfo* RspMsg::_internal_mutable_rspinfo() {
   }
   return rspinfo_;
 }
-inline ::RspInfo* RspMsg::mutable_rspinfo() {
+inline ::RspInfo* StreamResData::mutable_rspinfo() {
   ::RspInfo* _msg = _internal_mutable_rspinfo();
-  // @@protoc_insertion_point(field_mutable:RspMsg.rspInfo)
+  // @@protoc_insertion_point(field_mutable:StreamResData.rspInfo)
   return _msg;
 }
-inline void RspMsg::set_allocated_rspinfo(::RspInfo* rspinfo) {
+inline void StreamResData::set_allocated_rspinfo(::RspInfo* rspinfo) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete rspinfo_;
@@ -1080,47 +1080,47 @@ inline void RspMsg::set_allocated_rspinfo(::RspInfo* rspinfo) {
     
   }
   rspinfo_ = rspinfo;
-  // @@protoc_insertion_point(field_set_allocated:RspMsg.rspInfo)
+  // @@protoc_insertion_point(field_set_allocated:StreamResData.rspInfo)
 }
 
 // int32 request_id = 4;
-inline void RspMsg::clear_request_id() {
+inline void StreamResData::clear_request_id() {
   request_id_ = 0;
 }
-inline int32_t RspMsg::_internal_request_id() const {
+inline int32_t StreamResData::_internal_request_id() const {
   return request_id_;
 }
-inline int32_t RspMsg::request_id() const {
-  // @@protoc_insertion_point(field_get:RspMsg.request_id)
+inline int32_t StreamResData::request_id() const {
+  // @@protoc_insertion_point(field_get:StreamResData.request_id)
   return _internal_request_id();
 }
-inline void RspMsg::_internal_set_request_id(int32_t value) {
+inline void StreamResData::_internal_set_request_id(int32_t value) {
   
   request_id_ = value;
 }
-inline void RspMsg::set_request_id(int32_t value) {
+inline void StreamResData::set_request_id(int32_t value) {
   _internal_set_request_id(value);
-  // @@protoc_insertion_point(field_set:RspMsg.request_id)
+  // @@protoc_insertion_point(field_set:StreamResData.request_id)
 }
 
 // bool isLast = 5;
-inline void RspMsg::clear_islast() {
+inline void StreamResData::clear_islast() {
   islast_ = false;
 }
-inline bool RspMsg::_internal_islast() const {
+inline bool StreamResData::_internal_islast() const {
   return islast_;
 }
-inline bool RspMsg::islast() const {
-  // @@protoc_insertion_point(field_get:RspMsg.isLast)
+inline bool StreamResData::islast() const {
+  // @@protoc_insertion_point(field_get:StreamResData.isLast)
   return _internal_islast();
 }
-inline void RspMsg::_internal_set_islast(bool value) {
+inline void StreamResData::_internal_set_islast(bool value) {
   
   islast_ = value;
 }
-inline void RspMsg::set_islast(bool value) {
+inline void StreamResData::set_islast(bool value) {
   _internal_set_islast(value);
-  // @@protoc_insertion_point(field_set:RspMsg.isLast)
+  // @@protoc_insertion_point(field_set:StreamResData.isLast)
 }
 
 #ifdef __GNUC__
