@@ -38,33 +38,33 @@ class Greeter final {
     // 以下 分别是 服务端 推送流， 客户端 推送流 ，双向流。
     // 客户端推送 服务端 rpc GetStream
     // 服务端推送 客户端 rpc PutStream
-    // 客户端与 服务端 互相 推送 rpc AllStream
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::StreamResData>> GetStream(::grpc::ClientContext* context, const ::StreamReqData& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::StreamResData>>(GetStreamRaw(context, request));
+    // 客户端与 服务端 互相 推送 rpc DualStream
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::StreamCppData>> Stream2Cpp(::grpc::ClientContext* context, const ::StreamGoData& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::StreamCppData>>(Stream2CppRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamResData>> AsyncGetStream(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamResData>>(AsyncGetStreamRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamCppData>> AsyncStream2Cpp(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamCppData>>(AsyncStream2CppRaw(context, request, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamResData>> PrepareAsyncGetStream(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamResData>>(PrepareAsyncGetStreamRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamCppData>> PrepareAsyncStream2Cpp(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::StreamCppData>>(PrepareAsyncStream2CppRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientWriterInterface< ::StreamReqData>> PutStream(::grpc::ClientContext* context, ::StreamResData* response) {
-      return std::unique_ptr< ::grpc::ClientWriterInterface< ::StreamReqData>>(PutStreamRaw(context, response));
+    std::unique_ptr< ::grpc::ClientWriterInterface< ::StreamGoData>> Stream2Go(::grpc::ClientContext* context, ::StreamCppData* response) {
+      return std::unique_ptr< ::grpc::ClientWriterInterface< ::StreamGoData>>(Stream2GoRaw(context, response));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamReqData>> AsyncPutStream(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamReqData>>(AsyncPutStreamRaw(context, response, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamGoData>> AsyncStream2Go(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamGoData>>(AsyncStream2GoRaw(context, response, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamReqData>> PrepareAsyncPutStream(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamReqData>>(PrepareAsyncPutStreamRaw(context, response, cq));
+    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamGoData>> PrepareAsyncStream2Go(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::StreamGoData>>(PrepareAsyncStream2GoRaw(context, response, cq));
     }
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StreamReqData, ::StreamResData>> AllStream(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StreamReqData, ::StreamResData>>(AllStreamRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StreamGoData, ::StreamCppData>> DualStream(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StreamGoData, ::StreamCppData>>(DualStreamRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamReqData, ::StreamResData>> AsyncAllStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamReqData, ::StreamResData>>(AsyncAllStreamRaw(context, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamGoData, ::StreamCppData>> AsyncDualStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamGoData, ::StreamCppData>>(AsyncDualStreamRaw(context, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamReqData, ::StreamResData>> PrepareAsyncAllStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamReqData, ::StreamResData>>(PrepareAsyncAllStreamRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamGoData, ::StreamCppData>> PrepareAsyncDualStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StreamGoData, ::StreamCppData>>(PrepareAsyncDualStreamRaw(context, cq));
     }
     class async_interface {
      public:
@@ -73,61 +73,61 @@ class Greeter final {
       // 以下 分别是 服务端 推送流， 客户端 推送流 ，双向流。
       // 客户端推送 服务端 rpc GetStream
       // 服务端推送 客户端 rpc PutStream
-      // 客户端与 服务端 互相 推送 rpc AllStream
-      virtual void GetStream(::grpc::ClientContext* context, const ::StreamReqData* request, ::grpc::ClientReadReactor< ::StreamResData>* reactor) = 0;
-      virtual void PutStream(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::ClientWriteReactor< ::StreamReqData>* reactor) = 0;
-      virtual void AllStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StreamReqData,::StreamResData>* reactor) = 0;
+      // 客户端与 服务端 互相 推送 rpc DualStream
+      virtual void Stream2Cpp(::grpc::ClientContext* context, const ::StreamGoData* request, ::grpc::ClientReadReactor< ::StreamCppData>* reactor) = 0;
+      virtual void Stream2Go(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::ClientWriteReactor< ::StreamGoData>* reactor) = 0;
+      virtual void DualStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StreamGoData,::StreamCppData>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientReaderInterface< ::StreamResData>* GetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::StreamResData>* AsyncGetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::StreamResData>* PrepareAsyncGetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientWriterInterface< ::StreamReqData>* PutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::StreamReqData>* AsyncPutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::StreamReqData>* PrepareAsyncPutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientReaderWriterInterface< ::StreamReqData, ::StreamResData>* AllStreamRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StreamReqData, ::StreamResData>* AsyncAllStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StreamReqData, ::StreamResData>* PrepareAsyncAllStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::StreamCppData>* Stream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::StreamCppData>* AsyncStream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::StreamCppData>* PrepareAsyncStream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientWriterInterface< ::StreamGoData>* Stream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response) = 0;
+    virtual ::grpc::ClientAsyncWriterInterface< ::StreamGoData>* AsyncStream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncWriterInterface< ::StreamGoData>* PrepareAsyncStream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::StreamGoData, ::StreamCppData>* DualStreamRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StreamGoData, ::StreamCppData>* AsyncDualStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StreamGoData, ::StreamCppData>* PrepareAsyncDualStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientReader< ::StreamResData>> GetStream(::grpc::ClientContext* context, const ::StreamReqData& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::StreamResData>>(GetStreamRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReader< ::StreamCppData>> Stream2Cpp(::grpc::ClientContext* context, const ::StreamGoData& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::StreamCppData>>(Stream2CppRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamResData>> AsyncGetStream(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamResData>>(AsyncGetStreamRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamCppData>> AsyncStream2Cpp(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamCppData>>(AsyncStream2CppRaw(context, request, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamResData>> PrepareAsyncGetStream(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamResData>>(PrepareAsyncGetStreamRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamCppData>> PrepareAsyncStream2Cpp(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::StreamCppData>>(PrepareAsyncStream2CppRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientWriter< ::StreamReqData>> PutStream(::grpc::ClientContext* context, ::StreamResData* response) {
-      return std::unique_ptr< ::grpc::ClientWriter< ::StreamReqData>>(PutStreamRaw(context, response));
+    std::unique_ptr< ::grpc::ClientWriter< ::StreamGoData>> Stream2Go(::grpc::ClientContext* context, ::StreamCppData* response) {
+      return std::unique_ptr< ::grpc::ClientWriter< ::StreamGoData>>(Stream2GoRaw(context, response));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamReqData>> AsyncPutStream(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamReqData>>(AsyncPutStreamRaw(context, response, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamGoData>> AsyncStream2Go(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamGoData>>(AsyncStream2GoRaw(context, response, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamReqData>> PrepareAsyncPutStream(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamReqData>>(PrepareAsyncPutStreamRaw(context, response, cq));
+    std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamGoData>> PrepareAsyncStream2Go(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::StreamGoData>>(PrepareAsyncStream2GoRaw(context, response, cq));
     }
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::StreamReqData, ::StreamResData>> AllStream(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::StreamReqData, ::StreamResData>>(AllStreamRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::StreamGoData, ::StreamCppData>> DualStream(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::StreamGoData, ::StreamCppData>>(DualStreamRaw(context));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>> AsyncAllStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>>(AsyncAllStreamRaw(context, cq, tag));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>> AsyncDualStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>>(AsyncDualStreamRaw(context, cq, tag));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>> PrepareAsyncAllStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>>(PrepareAsyncAllStreamRaw(context, cq));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>> PrepareAsyncDualStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>>(PrepareAsyncDualStreamRaw(context, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void GetStream(::grpc::ClientContext* context, const ::StreamReqData* request, ::grpc::ClientReadReactor< ::StreamResData>* reactor) override;
-      void PutStream(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::ClientWriteReactor< ::StreamReqData>* reactor) override;
-      void AllStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StreamReqData,::StreamResData>* reactor) override;
+      void Stream2Cpp(::grpc::ClientContext* context, const ::StreamGoData* request, ::grpc::ClientReadReactor< ::StreamCppData>* reactor) override;
+      void Stream2Go(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::ClientWriteReactor< ::StreamGoData>* reactor) override;
+      void DualStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StreamGoData,::StreamCppData>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -139,18 +139,18 @@ class Greeter final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientReader< ::StreamResData>* GetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request) override;
-    ::grpc::ClientAsyncReader< ::StreamResData>* AsyncGetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReader< ::StreamResData>* PrepareAsyncGetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientWriter< ::StreamReqData>* PutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response) override;
-    ::grpc::ClientAsyncWriter< ::StreamReqData>* AsyncPutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncWriter< ::StreamReqData>* PrepareAsyncPutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientReaderWriter< ::StreamReqData, ::StreamResData>* AllStreamRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>* AsyncAllStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>* PrepareAsyncAllStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_GetStream_;
-    const ::grpc::internal::RpcMethod rpcmethod_PutStream_;
-    const ::grpc::internal::RpcMethod rpcmethod_AllStream_;
+    ::grpc::ClientReader< ::StreamCppData>* Stream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request) override;
+    ::grpc::ClientAsyncReader< ::StreamCppData>* AsyncStream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::StreamCppData>* PrepareAsyncStream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientWriter< ::StreamGoData>* Stream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response) override;
+    ::grpc::ClientAsyncWriter< ::StreamGoData>* AsyncStream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncWriter< ::StreamGoData>* PrepareAsyncStream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::StreamGoData, ::StreamCppData>* DualStreamRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>* AsyncDualStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>* PrepareAsyncDualStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_Stream2Cpp_;
+    const ::grpc::internal::RpcMethod rpcmethod_Stream2Go_;
+    const ::grpc::internal::RpcMethod rpcmethod_DualStream_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -162,349 +162,349 @@ class Greeter final {
     // 以下 分别是 服务端 推送流， 客户端 推送流 ，双向流。
     // 客户端推送 服务端 rpc GetStream
     // 服务端推送 客户端 rpc PutStream
-    // 客户端与 服务端 互相 推送 rpc AllStream
-    virtual ::grpc::Status GetStream(::grpc::ServerContext* context, const ::StreamReqData* request, ::grpc::ServerWriter< ::StreamResData>* writer);
-    virtual ::grpc::Status PutStream(::grpc::ServerContext* context, ::grpc::ServerReader< ::StreamReqData>* reader, ::StreamResData* response);
-    virtual ::grpc::Status AllStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::StreamResData, ::StreamReqData>* stream);
+    // 客户端与 服务端 互相 推送 rpc DualStream
+    virtual ::grpc::Status Stream2Cpp(::grpc::ServerContext* context, const ::StreamGoData* request, ::grpc::ServerWriter< ::StreamCppData>* writer);
+    virtual ::grpc::Status Stream2Go(::grpc::ServerContext* context, ::grpc::ServerReader< ::StreamGoData>* reader, ::StreamCppData* response);
+    virtual ::grpc::Status DualStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::StreamCppData, ::StreamGoData>* stream);
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetStream : public BaseClass {
+  class WithAsyncMethod_Stream2Cpp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetStream() {
+    WithAsyncMethod_Stream2Cpp() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_GetStream() override {
+    ~WithAsyncMethod_Stream2Cpp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStream(::grpc::ServerContext* /*context*/, const ::StreamReqData* /*request*/, ::grpc::ServerWriter< ::StreamResData>* /*writer*/) override {
+    ::grpc::Status Stream2Cpp(::grpc::ServerContext* /*context*/, const ::StreamGoData* /*request*/, ::grpc::ServerWriter< ::StreamCppData>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetStream(::grpc::ServerContext* context, ::StreamReqData* request, ::grpc::ServerAsyncWriter< ::StreamResData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestStream2Cpp(::grpc::ServerContext* context, ::StreamGoData* request, ::grpc::ServerAsyncWriter< ::StreamCppData>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_PutStream : public BaseClass {
+  class WithAsyncMethod_Stream2Go : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_PutStream() {
+    WithAsyncMethod_Stream2Go() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_PutStream() override {
+    ~WithAsyncMethod_Stream2Go() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamReqData>* /*reader*/, ::StreamResData* /*response*/) override {
+    ::grpc::Status Stream2Go(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamGoData>* /*reader*/, ::StreamCppData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPutStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::StreamResData, ::StreamReqData>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestStream2Go(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::StreamCppData, ::StreamGoData>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncClientStreaming(1, context, reader, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_AllStream : public BaseClass {
+  class WithAsyncMethod_DualStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_AllStream() {
+    WithAsyncMethod_DualStream() {
       ::grpc::Service::MarkMethodAsync(2);
     }
-    ~WithAsyncMethod_AllStream() override {
+    ~WithAsyncMethod_DualStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamResData, ::StreamReqData>* /*stream*/)  override {
+    ::grpc::Status DualStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamCppData, ::StreamGoData>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAllStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::StreamResData, ::StreamReqData>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDualStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::StreamCppData, ::StreamGoData>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncBidiStreaming(2, context, stream, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetStream<WithAsyncMethod_PutStream<WithAsyncMethod_AllStream<Service > > > AsyncService;
+  typedef WithAsyncMethod_Stream2Cpp<WithAsyncMethod_Stream2Go<WithAsyncMethod_DualStream<Service > > > AsyncService;
   template <class BaseClass>
-  class WithCallbackMethod_GetStream : public BaseClass {
+  class WithCallbackMethod_Stream2Cpp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetStream() {
+    WithCallbackMethod_Stream2Cpp() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::StreamReqData, ::StreamResData>(
+          new ::grpc::internal::CallbackServerStreamingHandler< ::StreamGoData, ::StreamCppData>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::StreamReqData* request) { return this->GetStream(context, request); }));
+                   ::grpc::CallbackServerContext* context, const ::StreamGoData* request) { return this->Stream2Cpp(context, request); }));
     }
-    ~WithCallbackMethod_GetStream() override {
+    ~WithCallbackMethod_Stream2Cpp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStream(::grpc::ServerContext* /*context*/, const ::StreamReqData* /*request*/, ::grpc::ServerWriter< ::StreamResData>* /*writer*/) override {
+    ::grpc::Status Stream2Cpp(::grpc::ServerContext* /*context*/, const ::StreamGoData* /*request*/, ::grpc::ServerWriter< ::StreamCppData>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::StreamResData>* GetStream(
-      ::grpc::CallbackServerContext* /*context*/, const ::StreamReqData* /*request*/)  { return nullptr; }
+    virtual ::grpc::ServerWriteReactor< ::StreamCppData>* Stream2Cpp(
+      ::grpc::CallbackServerContext* /*context*/, const ::StreamGoData* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_PutStream : public BaseClass {
+  class WithCallbackMethod_Stream2Go : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_PutStream() {
+    WithCallbackMethod_Stream2Go() {
       ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackClientStreamingHandler< ::StreamReqData, ::StreamResData>(
+          new ::grpc::internal::CallbackClientStreamingHandler< ::StreamGoData, ::StreamCppData>(
             [this](
-                   ::grpc::CallbackServerContext* context, ::StreamResData* response) { return this->PutStream(context, response); }));
+                   ::grpc::CallbackServerContext* context, ::StreamCppData* response) { return this->Stream2Go(context, response); }));
     }
-    ~WithCallbackMethod_PutStream() override {
+    ~WithCallbackMethod_Stream2Go() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamReqData>* /*reader*/, ::StreamResData* /*response*/) override {
+    ::grpc::Status Stream2Go(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamGoData>* /*reader*/, ::StreamCppData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerReadReactor< ::StreamReqData>* PutStream(
-      ::grpc::CallbackServerContext* /*context*/, ::StreamResData* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerReadReactor< ::StreamGoData>* Stream2Go(
+      ::grpc::CallbackServerContext* /*context*/, ::StreamCppData* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_AllStream : public BaseClass {
+  class WithCallbackMethod_DualStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_AllStream() {
+    WithCallbackMethod_DualStream() {
       ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackBidiHandler< ::StreamReqData, ::StreamResData>(
+          new ::grpc::internal::CallbackBidiHandler< ::StreamGoData, ::StreamCppData>(
             [this](
-                   ::grpc::CallbackServerContext* context) { return this->AllStream(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->DualStream(context); }));
     }
-    ~WithCallbackMethod_AllStream() override {
+    ~WithCallbackMethod_DualStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamResData, ::StreamReqData>* /*stream*/)  override {
+    ::grpc::Status DualStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamCppData, ::StreamGoData>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerBidiReactor< ::StreamReqData, ::StreamResData>* AllStream(
+    virtual ::grpc::ServerBidiReactor< ::StreamGoData, ::StreamCppData>* DualStream(
       ::grpc::CallbackServerContext* /*context*/)
       { return nullptr; }
   };
-  typedef WithCallbackMethod_GetStream<WithCallbackMethod_PutStream<WithCallbackMethod_AllStream<Service > > > CallbackService;
+  typedef WithCallbackMethod_Stream2Cpp<WithCallbackMethod_Stream2Go<WithCallbackMethod_DualStream<Service > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_GetStream : public BaseClass {
+  class WithGenericMethod_Stream2Cpp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetStream() {
+    WithGenericMethod_Stream2Cpp() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_GetStream() override {
+    ~WithGenericMethod_Stream2Cpp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStream(::grpc::ServerContext* /*context*/, const ::StreamReqData* /*request*/, ::grpc::ServerWriter< ::StreamResData>* /*writer*/) override {
+    ::grpc::Status Stream2Cpp(::grpc::ServerContext* /*context*/, const ::StreamGoData* /*request*/, ::grpc::ServerWriter< ::StreamCppData>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_PutStream : public BaseClass {
+  class WithGenericMethod_Stream2Go : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_PutStream() {
+    WithGenericMethod_Stream2Go() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_PutStream() override {
+    ~WithGenericMethod_Stream2Go() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamReqData>* /*reader*/, ::StreamResData* /*response*/) override {
+    ::grpc::Status Stream2Go(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamGoData>* /*reader*/, ::StreamCppData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_AllStream : public BaseClass {
+  class WithGenericMethod_DualStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_AllStream() {
+    WithGenericMethod_DualStream() {
       ::grpc::Service::MarkMethodGeneric(2);
     }
-    ~WithGenericMethod_AllStream() override {
+    ~WithGenericMethod_DualStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamResData, ::StreamReqData>* /*stream*/)  override {
+    ::grpc::Status DualStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamCppData, ::StreamGoData>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetStream : public BaseClass {
+  class WithRawMethod_Stream2Cpp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetStream() {
+    WithRawMethod_Stream2Cpp() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_GetStream() override {
+    ~WithRawMethod_Stream2Cpp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStream(::grpc::ServerContext* /*context*/, const ::StreamReqData* /*request*/, ::grpc::ServerWriter< ::StreamResData>* /*writer*/) override {
+    ::grpc::Status Stream2Cpp(::grpc::ServerContext* /*context*/, const ::StreamGoData* /*request*/, ::grpc::ServerWriter< ::StreamCppData>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetStream(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestStream2Cpp(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_PutStream : public BaseClass {
+  class WithRawMethod_Stream2Go : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_PutStream() {
+    WithRawMethod_Stream2Go() {
       ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_PutStream() override {
+    ~WithRawMethod_Stream2Go() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamReqData>* /*reader*/, ::StreamResData* /*response*/) override {
+    ::grpc::Status Stream2Go(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamGoData>* /*reader*/, ::StreamCppData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPutStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestStream2Go(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncClientStreaming(1, context, reader, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_AllStream : public BaseClass {
+  class WithRawMethod_DualStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_AllStream() {
+    WithRawMethod_DualStream() {
       ::grpc::Service::MarkMethodRaw(2);
     }
-    ~WithRawMethod_AllStream() override {
+    ~WithRawMethod_DualStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamResData, ::StreamReqData>* /*stream*/)  override {
+    ::grpc::Status DualStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamCppData, ::StreamGoData>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAllStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestDualStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncBidiStreaming(2, context, stream, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetStream : public BaseClass {
+  class WithRawCallbackMethod_Stream2Cpp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetStream() {
+    WithRawCallbackMethod_Stream2Cpp() {
       ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->GetStream(context, request); }));
+                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->Stream2Cpp(context, request); }));
     }
-    ~WithRawCallbackMethod_GetStream() override {
+    ~WithRawCallbackMethod_Stream2Cpp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStream(::grpc::ServerContext* /*context*/, const ::StreamReqData* /*request*/, ::grpc::ServerWriter< ::StreamResData>* /*writer*/) override {
+    ::grpc::Status Stream2Cpp(::grpc::ServerContext* /*context*/, const ::StreamGoData* /*request*/, ::grpc::ServerWriter< ::StreamCppData>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* GetStream(
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* Stream2Cpp(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_PutStream : public BaseClass {
+  class WithRawCallbackMethod_Stream2Go : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_PutStream() {
+    WithRawCallbackMethod_Stream2Go() {
       ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, ::grpc::ByteBuffer* response) { return this->PutStream(context, response); }));
+                   ::grpc::CallbackServerContext* context, ::grpc::ByteBuffer* response) { return this->Stream2Go(context, response); }));
     }
-    ~WithRawCallbackMethod_PutStream() override {
+    ~WithRawCallbackMethod_Stream2Go() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamReqData>* /*reader*/, ::StreamResData* /*response*/) override {
+    ::grpc::Status Stream2Go(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::StreamGoData>* /*reader*/, ::StreamCppData* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerReadReactor< ::grpc::ByteBuffer>* PutStream(
+    virtual ::grpc::ServerReadReactor< ::grpc::ByteBuffer>* Stream2Go(
       ::grpc::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_AllStream : public BaseClass {
+  class WithRawCallbackMethod_DualStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_AllStream() {
+    WithRawCallbackMethod_DualStream() {
       ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context) { return this->AllStream(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->DualStream(context); }));
     }
-    ~WithRawCallbackMethod_AllStream() override {
+    ~WithRawCallbackMethod_DualStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamResData, ::StreamReqData>* /*stream*/)  override {
+    ::grpc::Status DualStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StreamCppData, ::StreamGoData>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* AllStream(
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* DualStream(
       ::grpc::CallbackServerContext* /*context*/)
       { return nullptr; }
   };
   typedef Service StreamedUnaryService;
   template <class BaseClass>
-  class WithSplitStreamingMethod_GetStream : public BaseClass {
+  class WithSplitStreamingMethod_Stream2Cpp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithSplitStreamingMethod_GetStream() {
+    WithSplitStreamingMethod_Stream2Cpp() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::SplitServerStreamingHandler<
-          ::StreamReqData, ::StreamResData>(
+          ::StreamGoData, ::StreamCppData>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerSplitStreamer<
-                     ::StreamReqData, ::StreamResData>* streamer) {
-                       return this->StreamedGetStream(context,
+                     ::StreamGoData, ::StreamCppData>* streamer) {
+                       return this->StreamedStream2Cpp(context,
                          streamer);
                   }));
     }
-    ~WithSplitStreamingMethod_GetStream() override {
+    ~WithSplitStreamingMethod_Stream2Cpp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetStream(::grpc::ServerContext* /*context*/, const ::StreamReqData* /*request*/, ::grpc::ServerWriter< ::StreamResData>* /*writer*/) override {
+    ::grpc::Status Stream2Cpp(::grpc::ServerContext* /*context*/, const ::StreamGoData* /*request*/, ::grpc::ServerWriter< ::StreamCppData>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with split streamed
-    virtual ::grpc::Status StreamedGetStream(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::StreamReqData,::StreamResData>* server_split_streamer) = 0;
+    virtual ::grpc::Status StreamedStream2Cpp(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::StreamGoData,::StreamCppData>* server_split_streamer) = 0;
   };
-  typedef WithSplitStreamingMethod_GetStream<Service > SplitStreamedService;
-  typedef WithSplitStreamingMethod_GetStream<Service > StreamedService;
+  typedef WithSplitStreamingMethod_Stream2Cpp<Service > SplitStreamedService;
+  typedef WithSplitStreamingMethod_Stream2Cpp<Service > StreamedService;
 };
 
 

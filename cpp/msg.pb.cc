@@ -29,22 +29,22 @@ struct RspInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RspInfoDefaultTypeInternal _RspInfo_default_instance_;
-constexpr StreamReqData::StreamReqData(
+constexpr StreamCppData::StreamCppData(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : req_(nullptr)
   , type_(0)
 
   , request_id_(0){}
-struct StreamReqDataDefaultTypeInternal {
-  constexpr StreamReqDataDefaultTypeInternal()
+struct StreamCppDataDefaultTypeInternal {
+  constexpr StreamCppDataDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~StreamReqDataDefaultTypeInternal() {}
+  ~StreamCppDataDefaultTypeInternal() {}
   union {
-    StreamReqData _instance;
+    StreamCppData _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StreamReqDataDefaultTypeInternal _StreamReqData_default_instance_;
-constexpr StreamResData::StreamResData(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StreamCppDataDefaultTypeInternal _StreamCppData_default_instance_;
+constexpr StreamGoData::StreamGoData(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : filed_(nullptr)
   , rspinfo_(nullptr)
@@ -52,15 +52,15 @@ constexpr StreamResData::StreamResData(
 
   , request_id_(0)
   , islast_(false){}
-struct StreamResDataDefaultTypeInternal {
-  constexpr StreamResDataDefaultTypeInternal()
+struct StreamGoDataDefaultTypeInternal {
+  constexpr StreamGoDataDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~StreamResDataDefaultTypeInternal() {}
+  ~StreamGoDataDefaultTypeInternal() {}
   union {
-    StreamResData _instance;
+    StreamGoData _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StreamResDataDefaultTypeInternal _StreamResData_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StreamGoDataDefaultTypeInternal _StreamGoData_default_instance_;
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_msg_2eproto[3];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_msg_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_msg_2eproto = nullptr;
@@ -75,73 +75,73 @@ const uint32_t TableStruct_msg_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(prot
   PROTOBUF_FIELD_OFFSET(::RspInfo, error_id_),
   PROTOBUF_FIELD_OFFSET(::RspInfo, error_msg_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::StreamReqData, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::StreamCppData, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::StreamReqData, type_),
-  PROTOBUF_FIELD_OFFSET(::StreamReqData, request_id_),
-  PROTOBUF_FIELD_OFFSET(::StreamReqData, req_),
+  PROTOBUF_FIELD_OFFSET(::StreamCppData, type_),
+  PROTOBUF_FIELD_OFFSET(::StreamCppData, request_id_),
+  PROTOBUF_FIELD_OFFSET(::StreamCppData, req_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::StreamResData, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::StreamGoData, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::StreamResData, type_),
-  PROTOBUF_FIELD_OFFSET(::StreamResData, filed_),
-  PROTOBUF_FIELD_OFFSET(::StreamResData, rspinfo_),
-  PROTOBUF_FIELD_OFFSET(::StreamResData, request_id_),
-  PROTOBUF_FIELD_OFFSET(::StreamResData, islast_),
+  PROTOBUF_FIELD_OFFSET(::StreamGoData, type_),
+  PROTOBUF_FIELD_OFFSET(::StreamGoData, filed_),
+  PROTOBUF_FIELD_OFFSET(::StreamGoData, rspinfo_),
+  PROTOBUF_FIELD_OFFSET(::StreamGoData, request_id_),
+  PROTOBUF_FIELD_OFFSET(::StreamGoData, islast_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::RspInfo)},
-  { 8, -1, -1, sizeof(::StreamReqData)},
-  { 17, -1, -1, sizeof(::StreamResData)},
+  { 8, -1, -1, sizeof(::StreamCppData)},
+  { 17, -1, -1, sizeof(::StreamGoData)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_RspInfo_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_StreamReqData_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_StreamResData_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_StreamCppData_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_StreamGoData_default_instance_),
 };
 
 const char descriptor_table_protodef_msg_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\tmsg.proto\032\tany.proto\".\n\007RspInfo\022\020\n\010err"
   "or_id\030\001 \001(\005\022\021\n\terror_msg\030\002 \001(\t\"^\n\rStream"
-  "ReqData\022\026\n\004type\030\001 \001(\0162\010.MsgType\022\022\n\nreque"
+  "CppData\022\026\n\004type\030\001 \001(\0162\010.MsgType\022\022\n\nreque"
   "st_id\030\002 \001(\005\022!\n\003req\030\003 \001(\0132\024.google.protob"
-  "uf.Any\"\213\001\n\rStreamResData\022\026\n\004type\030\001 \001(\0162\010"
-  ".MsgType\022#\n\005filed\030\002 \001(\0132\024.google.protobu"
-  "f.Any\022\031\n\007rspInfo\030\003 \001(\0132\010.RspInfo\022\022\n\nrequ"
-  "est_id\030\004 \001(\005\022\016\n\006isLast\030\005 \001(\010*\311\005\n\007MsgType"
-  "\022\r\n\tUNIVERSAL\020\000\022\024\n\020ReqQryInstrument\020\001\022\026\n"
-  "\022OnRspQryInstrument\020\002\022\031\n\025OnRtnInstrument"
-  "Status\020\003\022\030\n\024ReqQryTradingAccount\020\004\022\032\n\026On"
-  "RspQryTradingAccount\020\005\022\032\n\026ReqQryInvestor"
-  "Position\020\006\022\034\n\030OnRspQryInvestorPosition\020\007"
-  "\022\017\n\013ReqQryOrder\020\010\022\021\n\rOnRspQryOrder\020\t\022\016\n\n"
-  "OnRtnOrder\020\n\022\016\n\nOnRtnTrade\020\013\022\022\n\016ReqOrder"
-  "Insert\020\014\022\024\n\020OnRspOrderInsert\020\r\022\022\n\016ReqOrd"
-  "erAction\020\016\022\024\n\020OnRspOrderAction\020\017\022\027\n\023OnEr"
-  "rRtnOrderAction\020\020\022\016\n\nOnRspError\020\021\022\027\n\023Sub"
-  "scribeMarketData\020\022\022\026\n\022OnRspSubMarketData"
-  "\020\023\022\031\n\025UnSubscribeMarketData\020\024\022\030\n\024OnRspUn"
-  "SubMarketData\020\025\022\030\n\024OnRtnDepthMarketData\020"
-  "\026\022\024\n\020OnFrontConnected\020\027\022\027\n\023OnFrontDiscon"
-  "nected\020\030\022\023\n\017ReqAuthenticate\020\031\022\r\n\tOnRspAu"
-  "th\020\032\022\020\n\014ReqUserLogin\020\033\022\022\n\016OnRspUserLogin"
-  "\020\034\022\034\n\030ReqSettlementInfoConfirm\020\035\022\036\n\032OnRs"
-  "pSettlementInfoConfirm\020\036B\"Z github.com/c"
-  "razy-choose/pb/modelb\006proto3"
+  "uf.Any\"\212\001\n\014StreamGoData\022\026\n\004type\030\001 \001(\0162\010."
+  "MsgType\022#\n\005filed\030\002 \001(\0132\024.google.protobuf"
+  ".Any\022\031\n\007rspInfo\030\003 \001(\0132\010.RspInfo\022\022\n\nreque"
+  "st_id\030\004 \001(\005\022\016\n\006isLast\030\005 \001(\010*\311\005\n\007MsgType\022"
+  "\r\n\tUNIVERSAL\020\000\022\024\n\020ReqQryInstrument\020\001\022\026\n\022"
+  "OnRspQryInstrument\020\002\022\031\n\025OnRtnInstrumentS"
+  "tatus\020\003\022\030\n\024ReqQryTradingAccount\020\004\022\032\n\026OnR"
+  "spQryTradingAccount\020\005\022\032\n\026ReqQryInvestorP"
+  "osition\020\006\022\034\n\030OnRspQryInvestorPosition\020\007\022"
+  "\017\n\013ReqQryOrder\020\010\022\021\n\rOnRspQryOrder\020\t\022\016\n\nO"
+  "nRtnOrder\020\n\022\016\n\nOnRtnTrade\020\013\022\022\n\016ReqOrderI"
+  "nsert\020\014\022\024\n\020OnRspOrderInsert\020\r\022\022\n\016ReqOrde"
+  "rAction\020\016\022\024\n\020OnRspOrderAction\020\017\022\027\n\023OnErr"
+  "RtnOrderAction\020\020\022\016\n\nOnRspError\020\021\022\027\n\023Subs"
+  "cribeMarketData\020\022\022\026\n\022OnRspSubMarketData\020"
+  "\023\022\031\n\025UnSubscribeMarketData\020\024\022\030\n\024OnRspUnS"
+  "ubMarketData\020\025\022\030\n\024OnRtnDepthMarketData\020\026"
+  "\022\024\n\020OnFrontConnected\020\027\022\027\n\023OnFrontDisconn"
+  "ected\020\030\022\023\n\017ReqAuthenticate\020\031\022\r\n\tOnRspAut"
+  "h\020\032\022\020\n\014ReqUserLogin\020\033\022\022\n\016OnRspUserLogin\020"
+  "\034\022\034\n\030ReqSettlementInfoConfirm\020\035\022\036\n\032OnRsp"
+  "SettlementInfoConfirm\020\036B\"Z github.com/cr"
+  "azy-choose/pb/modelb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_msg_2eproto_deps[1] = {
   &::descriptor_table_any_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_msg_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_msg_2eproto = {
-  false, false, 1068, descriptor_table_protodef_msg_2eproto, "msg.proto", 
+  false, false, 1067, descriptor_table_protodef_msg_2eproto, "msg.proto", 
   &descriptor_table_msg_2eproto_once, descriptor_table_msg_2eproto_deps, 1, 3,
   schemas, file_default_instances, TableStruct_msg_2eproto::offsets,
   file_level_metadata_msg_2eproto, file_level_enum_descriptors_msg_2eproto, file_level_service_descriptors_msg_2eproto,
@@ -427,31 +427,31 @@ void RspInfo::InternalSwap(RspInfo* other) {
 
 // ===================================================================
 
-class StreamReqData::_Internal {
+class StreamCppData::_Internal {
  public:
-  static const ::google::protobuf::Any& req(const StreamReqData* msg);
+  static const ::google::protobuf::Any& req(const StreamCppData* msg);
 };
 
 const ::google::protobuf::Any&
-StreamReqData::_Internal::req(const StreamReqData* msg) {
+StreamCppData::_Internal::req(const StreamCppData* msg) {
   return *msg->req_;
 }
-void StreamReqData::clear_req() {
+void StreamCppData::clear_req() {
   if (GetArenaForAllocation() == nullptr && req_ != nullptr) {
     delete req_;
   }
   req_ = nullptr;
 }
-StreamReqData::StreamReqData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+StreamCppData::StreamCppData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:StreamReqData)
+  // @@protoc_insertion_point(arena_constructor:StreamCppData)
 }
-StreamReqData::StreamReqData(const StreamReqData& from)
+StreamCppData::StreamCppData(const StreamCppData& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_req()) {
@@ -462,40 +462,40 @@ StreamReqData::StreamReqData(const StreamReqData& from)
   ::memcpy(&type_, &from.type_,
     static_cast<size_t>(reinterpret_cast<char*>(&request_id_) -
     reinterpret_cast<char*>(&type_)) + sizeof(request_id_));
-  // @@protoc_insertion_point(copy_constructor:StreamReqData)
+  // @@protoc_insertion_point(copy_constructor:StreamCppData)
 }
 
-inline void StreamReqData::SharedCtor() {
+inline void StreamCppData::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&req_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&request_id_) -
     reinterpret_cast<char*>(&req_)) + sizeof(request_id_));
 }
 
-StreamReqData::~StreamReqData() {
-  // @@protoc_insertion_point(destructor:StreamReqData)
+StreamCppData::~StreamCppData() {
+  // @@protoc_insertion_point(destructor:StreamCppData)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void StreamReqData::SharedDtor() {
+inline void StreamCppData::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete req_;
 }
 
-void StreamReqData::ArenaDtor(void* object) {
-  StreamReqData* _this = reinterpret_cast< StreamReqData* >(object);
+void StreamCppData::ArenaDtor(void* object) {
+  StreamCppData* _this = reinterpret_cast< StreamCppData* >(object);
   (void)_this;
 }
-void StreamReqData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void StreamCppData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void StreamReqData::SetCachedSize(int size) const {
+void StreamCppData::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void StreamReqData::Clear() {
-// @@protoc_insertion_point(message_clear_start:StreamReqData)
+void StreamCppData::Clear() {
+// @@protoc_insertion_point(message_clear_start:StreamCppData)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -510,7 +510,7 @@ void StreamReqData::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* StreamReqData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* StreamCppData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -564,9 +564,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* StreamReqData::_InternalSerialize(
+uint8_t* StreamCppData::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:StreamReqData)
+  // @@protoc_insertion_point(serialize_to_array_start:StreamCppData)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -595,12 +595,12 @@ uint8_t* StreamReqData::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:StreamReqData)
+  // @@protoc_insertion_point(serialize_to_array_end:StreamCppData)
   return target;
 }
 
-size_t StreamReqData::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:StreamReqData)
+size_t StreamCppData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:StreamCppData)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -628,21 +628,21 @@ size_t StreamReqData::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StreamReqData::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StreamCppData::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    StreamReqData::MergeImpl
+    StreamCppData::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StreamReqData::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StreamCppData::GetClassData() const { return &_class_data_; }
 
-void StreamReqData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void StreamCppData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<StreamReqData *>(to)->MergeFrom(
-      static_cast<const StreamReqData &>(from));
+  static_cast<StreamCppData *>(to)->MergeFrom(
+      static_cast<const StreamCppData &>(from));
 }
 
 
-void StreamReqData::MergeFrom(const StreamReqData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:StreamReqData)
+void StreamCppData::MergeFrom(const StreamCppData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:StreamCppData)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -659,29 +659,29 @@ void StreamReqData::MergeFrom(const StreamReqData& from) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void StreamReqData::CopyFrom(const StreamReqData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:StreamReqData)
+void StreamCppData::CopyFrom(const StreamCppData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:StreamCppData)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool StreamReqData::IsInitialized() const {
+bool StreamCppData::IsInitialized() const {
   return true;
 }
 
-void StreamReqData::InternalSwap(StreamReqData* other) {
+void StreamCppData::InternalSwap(StreamCppData* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(StreamReqData, request_id_)
-      + sizeof(StreamReqData::request_id_)
-      - PROTOBUF_FIELD_OFFSET(StreamReqData, req_)>(
+      PROTOBUF_FIELD_OFFSET(StreamCppData, request_id_)
+      + sizeof(StreamCppData::request_id_)
+      - PROTOBUF_FIELD_OFFSET(StreamCppData, req_)>(
           reinterpret_cast<char*>(&req_),
           reinterpret_cast<char*>(&other->req_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata StreamReqData::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata StreamCppData::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_msg_2eproto_getter, &descriptor_table_msg_2eproto_once,
       file_level_metadata_msg_2eproto[1]);
@@ -689,36 +689,36 @@ void StreamReqData::InternalSwap(StreamReqData* other) {
 
 // ===================================================================
 
-class StreamResData::_Internal {
+class StreamGoData::_Internal {
  public:
-  static const ::google::protobuf::Any& filed(const StreamResData* msg);
-  static const ::RspInfo& rspinfo(const StreamResData* msg);
+  static const ::google::protobuf::Any& filed(const StreamGoData* msg);
+  static const ::RspInfo& rspinfo(const StreamGoData* msg);
 };
 
 const ::google::protobuf::Any&
-StreamResData::_Internal::filed(const StreamResData* msg) {
+StreamGoData::_Internal::filed(const StreamGoData* msg) {
   return *msg->filed_;
 }
 const ::RspInfo&
-StreamResData::_Internal::rspinfo(const StreamResData* msg) {
+StreamGoData::_Internal::rspinfo(const StreamGoData* msg) {
   return *msg->rspinfo_;
 }
-void StreamResData::clear_filed() {
+void StreamGoData::clear_filed() {
   if (GetArenaForAllocation() == nullptr && filed_ != nullptr) {
     delete filed_;
   }
   filed_ = nullptr;
 }
-StreamResData::StreamResData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+StreamGoData::StreamGoData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:StreamResData)
+  // @@protoc_insertion_point(arena_constructor:StreamGoData)
 }
-StreamResData::StreamResData(const StreamResData& from)
+StreamGoData::StreamGoData(const StreamGoData& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_filed()) {
@@ -734,41 +734,41 @@ StreamResData::StreamResData(const StreamResData& from)
   ::memcpy(&type_, &from.type_,
     static_cast<size_t>(reinterpret_cast<char*>(&islast_) -
     reinterpret_cast<char*>(&type_)) + sizeof(islast_));
-  // @@protoc_insertion_point(copy_constructor:StreamResData)
+  // @@protoc_insertion_point(copy_constructor:StreamGoData)
 }
 
-inline void StreamResData::SharedCtor() {
+inline void StreamGoData::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&filed_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&islast_) -
     reinterpret_cast<char*>(&filed_)) + sizeof(islast_));
 }
 
-StreamResData::~StreamResData() {
-  // @@protoc_insertion_point(destructor:StreamResData)
+StreamGoData::~StreamGoData() {
+  // @@protoc_insertion_point(destructor:StreamGoData)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void StreamResData::SharedDtor() {
+inline void StreamGoData::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete filed_;
   if (this != internal_default_instance()) delete rspinfo_;
 }
 
-void StreamResData::ArenaDtor(void* object) {
-  StreamResData* _this = reinterpret_cast< StreamResData* >(object);
+void StreamGoData::ArenaDtor(void* object) {
+  StreamGoData* _this = reinterpret_cast< StreamGoData* >(object);
   (void)_this;
 }
-void StreamResData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void StreamGoData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void StreamResData::SetCachedSize(int size) const {
+void StreamGoData::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void StreamResData::Clear() {
-// @@protoc_insertion_point(message_clear_start:StreamResData)
+void StreamGoData::Clear() {
+// @@protoc_insertion_point(message_clear_start:StreamGoData)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -787,7 +787,7 @@ void StreamResData::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* StreamResData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* StreamGoData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -857,9 +857,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* StreamResData::_InternalSerialize(
+uint8_t* StreamGoData::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:StreamResData)
+  // @@protoc_insertion_point(serialize_to_array_start:StreamGoData)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -902,12 +902,12 @@ uint8_t* StreamResData::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:StreamResData)
+  // @@protoc_insertion_point(serialize_to_array_end:StreamGoData)
   return target;
 }
 
-size_t StreamResData::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:StreamResData)
+size_t StreamGoData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:StreamGoData)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -947,21 +947,21 @@ size_t StreamResData::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StreamResData::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StreamGoData::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    StreamResData::MergeImpl
+    StreamGoData::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StreamResData::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StreamGoData::GetClassData() const { return &_class_data_; }
 
-void StreamResData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void StreamGoData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<StreamResData *>(to)->MergeFrom(
-      static_cast<const StreamResData &>(from));
+  static_cast<StreamGoData *>(to)->MergeFrom(
+      static_cast<const StreamGoData &>(from));
 }
 
 
-void StreamResData::MergeFrom(const StreamResData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:StreamResData)
+void StreamGoData::MergeFrom(const StreamGoData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:StreamGoData)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -984,29 +984,29 @@ void StreamResData::MergeFrom(const StreamResData& from) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void StreamResData::CopyFrom(const StreamResData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:StreamResData)
+void StreamGoData::CopyFrom(const StreamGoData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:StreamGoData)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool StreamResData::IsInitialized() const {
+bool StreamGoData::IsInitialized() const {
   return true;
 }
 
-void StreamResData::InternalSwap(StreamResData* other) {
+void StreamGoData::InternalSwap(StreamGoData* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(StreamResData, islast_)
-      + sizeof(StreamResData::islast_)
-      - PROTOBUF_FIELD_OFFSET(StreamResData, filed_)>(
+      PROTOBUF_FIELD_OFFSET(StreamGoData, islast_)
+      + sizeof(StreamGoData::islast_)
+      - PROTOBUF_FIELD_OFFSET(StreamGoData, filed_)>(
           reinterpret_cast<char*>(&filed_),
           reinterpret_cast<char*>(&other->filed_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata StreamResData::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata StreamGoData::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_msg_2eproto_getter, &descriptor_table_msg_2eproto_once,
       file_level_metadata_msg_2eproto[2]);
@@ -1017,11 +1017,11 @@ PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::RspInfo* Arena::CreateMaybeMessage< ::RspInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::RspInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::StreamReqData* Arena::CreateMaybeMessage< ::StreamReqData >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::StreamReqData >(arena);
+template<> PROTOBUF_NOINLINE ::StreamCppData* Arena::CreateMaybeMessage< ::StreamCppData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::StreamCppData >(arena);
 }
-template<> PROTOBUF_NOINLINE ::StreamResData* Arena::CreateMaybeMessage< ::StreamResData >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::StreamResData >(arena);
+template<> PROTOBUF_NOINLINE ::StreamGoData* Arena::CreateMaybeMessage< ::StreamGoData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::StreamGoData >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

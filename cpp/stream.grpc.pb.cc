@@ -21,9 +21,9 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 
 static const char* Greeter_method_names[] = {
-  "/Greeter/GetStream",
-  "/Greeter/PutStream",
-  "/Greeter/AllStream",
+  "/Greeter/Stream2Cpp",
+  "/Greeter/Stream2Go",
+  "/Greeter/DualStream",
 };
 
 std::unique_ptr< Greeter::Stub> Greeter::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -33,110 +33,110 @@ std::unique_ptr< Greeter::Stub> Greeter::NewStub(const std::shared_ptr< ::grpc::
 }
 
 Greeter::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_GetStream_(Greeter_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_PutStream_(Greeter_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
-  , rpcmethod_AllStream_(Greeter_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+  : channel_(channel), rpcmethod_Stream2Cpp_(Greeter_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_Stream2Go_(Greeter_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
+  , rpcmethod_DualStream_(Greeter_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
-::grpc::ClientReader< ::StreamResData>* Greeter::Stub::GetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request) {
-  return ::grpc::internal::ClientReaderFactory< ::StreamResData>::Create(channel_.get(), rpcmethod_GetStream_, context, request);
+::grpc::ClientReader< ::StreamCppData>* Greeter::Stub::Stream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request) {
+  return ::grpc::internal::ClientReaderFactory< ::StreamCppData>::Create(channel_.get(), rpcmethod_Stream2Cpp_, context, request);
 }
 
-void Greeter::Stub::async::GetStream(::grpc::ClientContext* context, const ::StreamReqData* request, ::grpc::ClientReadReactor< ::StreamResData>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::StreamResData>::Create(stub_->channel_.get(), stub_->rpcmethod_GetStream_, context, request, reactor);
+void Greeter::Stub::async::Stream2Cpp(::grpc::ClientContext* context, const ::StreamGoData* request, ::grpc::ClientReadReactor< ::StreamCppData>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::StreamCppData>::Create(stub_->channel_.get(), stub_->rpcmethod_Stream2Cpp_, context, request, reactor);
 }
 
-::grpc::ClientAsyncReader< ::StreamResData>* Greeter::Stub::AsyncGetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::StreamResData>::Create(channel_.get(), cq, rpcmethod_GetStream_, context, request, true, tag);
+::grpc::ClientAsyncReader< ::StreamCppData>* Greeter::Stub::AsyncStream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::StreamCppData>::Create(channel_.get(), cq, rpcmethod_Stream2Cpp_, context, request, true, tag);
 }
 
-::grpc::ClientAsyncReader< ::StreamResData>* Greeter::Stub::PrepareAsyncGetStreamRaw(::grpc::ClientContext* context, const ::StreamReqData& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::StreamResData>::Create(channel_.get(), cq, rpcmethod_GetStream_, context, request, false, nullptr);
+::grpc::ClientAsyncReader< ::StreamCppData>* Greeter::Stub::PrepareAsyncStream2CppRaw(::grpc::ClientContext* context, const ::StreamGoData& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::StreamCppData>::Create(channel_.get(), cq, rpcmethod_Stream2Cpp_, context, request, false, nullptr);
 }
 
-::grpc::ClientWriter< ::StreamReqData>* Greeter::Stub::PutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response) {
-  return ::grpc::internal::ClientWriterFactory< ::StreamReqData>::Create(channel_.get(), rpcmethod_PutStream_, context, response);
+::grpc::ClientWriter< ::StreamGoData>* Greeter::Stub::Stream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response) {
+  return ::grpc::internal::ClientWriterFactory< ::StreamGoData>::Create(channel_.get(), rpcmethod_Stream2Go_, context, response);
 }
 
-void Greeter::Stub::async::PutStream(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::ClientWriteReactor< ::StreamReqData>* reactor) {
-  ::grpc::internal::ClientCallbackWriterFactory< ::StreamReqData>::Create(stub_->channel_.get(), stub_->rpcmethod_PutStream_, context, response, reactor);
+void Greeter::Stub::async::Stream2Go(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::ClientWriteReactor< ::StreamGoData>* reactor) {
+  ::grpc::internal::ClientCallbackWriterFactory< ::StreamGoData>::Create(stub_->channel_.get(), stub_->rpcmethod_Stream2Go_, context, response, reactor);
 }
 
-::grpc::ClientAsyncWriter< ::StreamReqData>* Greeter::Stub::AsyncPutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::StreamReqData>::Create(channel_.get(), cq, rpcmethod_PutStream_, context, response, true, tag);
+::grpc::ClientAsyncWriter< ::StreamGoData>* Greeter::Stub::AsyncStream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::StreamGoData>::Create(channel_.get(), cq, rpcmethod_Stream2Go_, context, response, true, tag);
 }
 
-::grpc::ClientAsyncWriter< ::StreamReqData>* Greeter::Stub::PrepareAsyncPutStreamRaw(::grpc::ClientContext* context, ::StreamResData* response, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::StreamReqData>::Create(channel_.get(), cq, rpcmethod_PutStream_, context, response, false, nullptr);
+::grpc::ClientAsyncWriter< ::StreamGoData>* Greeter::Stub::PrepareAsyncStream2GoRaw(::grpc::ClientContext* context, ::StreamCppData* response, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::StreamGoData>::Create(channel_.get(), cq, rpcmethod_Stream2Go_, context, response, false, nullptr);
 }
 
-::grpc::ClientReaderWriter< ::StreamReqData, ::StreamResData>* Greeter::Stub::AllStreamRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::StreamReqData, ::StreamResData>::Create(channel_.get(), rpcmethod_AllStream_, context);
+::grpc::ClientReaderWriter< ::StreamGoData, ::StreamCppData>* Greeter::Stub::DualStreamRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::StreamGoData, ::StreamCppData>::Create(channel_.get(), rpcmethod_DualStream_, context);
 }
 
-void Greeter::Stub::async::AllStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StreamReqData,::StreamResData>* reactor) {
-  ::grpc::internal::ClientCallbackReaderWriterFactory< ::StreamReqData,::StreamResData>::Create(stub_->channel_.get(), stub_->rpcmethod_AllStream_, context, reactor);
+void Greeter::Stub::async::DualStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StreamGoData,::StreamCppData>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::StreamGoData,::StreamCppData>::Create(stub_->channel_.get(), stub_->rpcmethod_DualStream_, context, reactor);
 }
 
-::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>* Greeter::Stub::AsyncAllStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::StreamReqData, ::StreamResData>::Create(channel_.get(), cq, rpcmethod_AllStream_, context, true, tag);
+::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>* Greeter::Stub::AsyncDualStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::StreamGoData, ::StreamCppData>::Create(channel_.get(), cq, rpcmethod_DualStream_, context, true, tag);
 }
 
-::grpc::ClientAsyncReaderWriter< ::StreamReqData, ::StreamResData>* Greeter::Stub::PrepareAsyncAllStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::StreamReqData, ::StreamResData>::Create(channel_.get(), cq, rpcmethod_AllStream_, context, false, nullptr);
+::grpc::ClientAsyncReaderWriter< ::StreamGoData, ::StreamCppData>* Greeter::Stub::PrepareAsyncDualStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::StreamGoData, ::StreamCppData>::Create(channel_.get(), cq, rpcmethod_DualStream_, context, false, nullptr);
 }
 
 Greeter::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Greeter_method_names[0],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
-      new ::grpc::internal::ServerStreamingHandler< Greeter::Service, ::StreamReqData, ::StreamResData>(
+      new ::grpc::internal::ServerStreamingHandler< Greeter::Service, ::StreamGoData, ::StreamCppData>(
           [](Greeter::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::StreamReqData* req,
-             ::grpc::ServerWriter<::StreamResData>* writer) {
-               return service->GetStream(ctx, req, writer);
+             const ::StreamGoData* req,
+             ::grpc::ServerWriter<::StreamCppData>* writer) {
+               return service->Stream2Cpp(ctx, req, writer);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Greeter_method_names[1],
       ::grpc::internal::RpcMethod::CLIENT_STREAMING,
-      new ::grpc::internal::ClientStreamingHandler< Greeter::Service, ::StreamReqData, ::StreamResData>(
+      new ::grpc::internal::ClientStreamingHandler< Greeter::Service, ::StreamGoData, ::StreamCppData>(
           [](Greeter::Service* service,
              ::grpc::ServerContext* ctx,
-             ::grpc::ServerReader<::StreamReqData>* reader,
-             ::StreamResData* resp) {
-               return service->PutStream(ctx, reader, resp);
+             ::grpc::ServerReader<::StreamGoData>* reader,
+             ::StreamCppData* resp) {
+               return service->Stream2Go(ctx, reader, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Greeter_method_names[2],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
-      new ::grpc::internal::BidiStreamingHandler< Greeter::Service, ::StreamReqData, ::StreamResData>(
+      new ::grpc::internal::BidiStreamingHandler< Greeter::Service, ::StreamGoData, ::StreamCppData>(
           [](Greeter::Service* service,
              ::grpc::ServerContext* ctx,
-             ::grpc::ServerReaderWriter<::StreamResData,
-             ::StreamReqData>* stream) {
-               return service->AllStream(ctx, stream);
+             ::grpc::ServerReaderWriter<::StreamCppData,
+             ::StreamGoData>* stream) {
+               return service->DualStream(ctx, stream);
              }, this)));
 }
 
 Greeter::Service::~Service() {
 }
 
-::grpc::Status Greeter::Service::GetStream(::grpc::ServerContext* context, const ::StreamReqData* request, ::grpc::ServerWriter< ::StreamResData>* writer) {
+::grpc::Status Greeter::Service::Stream2Cpp(::grpc::ServerContext* context, const ::StreamGoData* request, ::grpc::ServerWriter< ::StreamCppData>* writer) {
   (void) context;
   (void) request;
   (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Greeter::Service::PutStream(::grpc::ServerContext* context, ::grpc::ServerReader< ::StreamReqData>* reader, ::StreamResData* response) {
+::grpc::Status Greeter::Service::Stream2Go(::grpc::ServerContext* context, ::grpc::ServerReader< ::StreamGoData>* reader, ::StreamCppData* response) {
   (void) context;
   (void) reader;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Greeter::Service::AllStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::StreamResData, ::StreamReqData>* stream) {
+::grpc::Status Greeter::Service::DualStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::StreamCppData, ::StreamGoData>* stream) {
   (void) context;
   (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
