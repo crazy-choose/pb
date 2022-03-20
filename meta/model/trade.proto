@@ -1,0 +1,42 @@
+syntax = "proto3";
+option go_package = "/out/model";
+
+//成交
+message TradeInfo  {
+  string    broker_id = 1;       // 经纪公司代码
+  string    investor_id = 2;     // 投资者代码
+  string    reserve_1 = 3;       // 保留的无效字段
+  string    order_ref = 4;       // 报单引用
+  string    user_id = 5;         // 用户代码
+  string    exchange_id = 6;     // 交易所代码
+  string    trade_id = 7;        // 成交编号
+  string    direction = 8;       // 买卖方向
+  string    order_sys_id = 9;    // 报单编号
+  string    participant_id = 10;  // 会员代码
+  string    client_id = 11;       // 客户代码
+  string    trading_role = 12;    // 交易角色
+  string    reserve_2 = 13;       // 保留的无效字段
+  string    offset_flag = 14;     // 开平标志
+  string    hedge_flag = 15;      // 投机套保标志
+  double   price = 16;           // 价格
+  int32       volume = 17;          // 数量
+  string    trade_date = 18;      // 成交时期
+  string    trade_time = 19;      // 成交时间
+  string    trade_type = 20;      // 成交类型
+  string    price_source = 21;    // 成交价来源
+  string    trader_id = 22;       // 交易所交易员代码
+  string    order_local_id = 23;  // 本地报单编号
+  string    clearing_part_id = 24;// 结算会员编号
+  string    business_unit = 25;   // 业务单元
+  int32       sequence_no = 26;     // 序号
+  string    trading_day = 27;     // 交易日
+  int32       settlement_id = 28;   // 结算编号
+  int32       broker_order_seq = 29;// 经纪公司报单编号
+  string    trade_source = 30;    // 成交来源
+  string    invest_unit_id = 31;  // 投资单元代码
+  string    instrument_id = 32;   // 合约代码
+  string    exchange_inst_id = 33;// 合约在交易所的代码
+
+  string   direction_zn = 34;// 买卖方向(转)
+  string   offset_flag_zn = 35;
+}

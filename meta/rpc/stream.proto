@@ -1,0 +1,11 @@
+syntax = "proto3";
+option go_package = "/out/stream";
+
+import "msg.proto";
+
+service StreamService {
+  rpc Request(stream ReqMsg) returns (RspMsg) {};
+  rpc Notify(stream NotifyMsg) returns (stream NetResult) {};
+  rpc SendTrap(stream TrapMsg) returns (stream NetResult) {};
+}
+

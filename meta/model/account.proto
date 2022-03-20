@@ -1,0 +1,104 @@
+syntax = "proto3";
+option go_package = "/out/model";
+
+// 资金账户
+message AccountInfo {
+  string broker_id = 1;                        // 经纪公司代码
+  string account_id = 2;                    // 投资者帐号
+  double pre_mortgage = 3;                 // 上次质押金额
+  double pre_credit = 4;              // 上次信用额度
+  double pre_deposit = 5;           // 上次存款额
+  double pre_balance = 6;        // 上次结算准备金
+  double pre_margin = 7;                  // 上次占用的保证金
+  double interest_base = 8;               // 利息基数
+  double interest = 9;            // 利息收入
+  double deposit = 10;           // 入金金额
+  double withdraw = 11;        // 出金金额
+  double frozen_margin = 12;       // 冻结的保证金
+  double frozen_cash = 13;      // 冻结的资金
+  double frozen_commission = 14;       // 冻结的手续费
+  double curr_margin = 15;       // 当前保证金总额
+  double cash_in = 16;        // 资金差额
+  double commission = 17;        // 手续费
+  double close_profit = 18;        // 平仓盈亏
+  double position_profit = 19;       // 持仓盈亏
+  double balance = 20;       // 期货结算准备金
+  double available = 21;      // 可用资金
+  double withdraw_quota = 22;      // 可取资金
+  double reserve = 23;      // 基本准备金
+  string trading_day = 24;      // 交易日
+  int32 settlement_id = 25;     // 结算编号
+  double credit = 26;      // 信用额度
+  double mortgage = 27;      // 质押金额
+  double exchange_margin = 28;      // 交易所保证金
+  double delivery_margin = 29;      // 投资者交割保证金
+  double exchange_delivery_margin = 30;     // 交易所交割保证金
+  double reserve_balance = 31;      // 保底期货结算准备金
+  string currency_id = 32;      // 币种代码
+  double pre_fund_mortgage_in = 33;      // 上次货币质入金额
+  double pre_fund_mortgage_out = 34;       // 上次货币质出金额
+  double fund_mortgage_in = 35;      // 货币质入金额
+  double fund_mortgage_out = 36;      // 货币质出金额
+  double fund_mortgage_available = 37;       // 货币质押余额
+  double mortgageable_fund = 38;       // 可质押货币金额
+  double spec_product_margin = 39;       // 特殊产品占用保证金
+  double spec_product_frozen_margin = 40;      // 特殊产品冻结保证金
+  double spec_product_commission = 41;      // 特殊产品手续费
+  double spec_product_frozen_commission = 42;      // 特殊产品冻结手续费
+  double spec_product_position_profit = 43;      // 特殊产品持仓盈亏
+  double spec_product_close_profit = 44;      // 特殊产品平仓盈亏
+  double spec_product_position_profit_by_alg = 45; // 根据持仓盈亏算法计算的特殊产品持仓盈亏
+  double spec_product_exchange_margin = 46;   // 特殊产品交易所保证金
+  string biz_type = 47;    // 业务类型
+  double frozen_swap = 48;     // 延时换汇冻结金额
+  double remain_swap = 49;     // 剩余换汇额度
+}
+
+//持仓
+message Position  {
+  string reserve1 = 1;            //保留的无效字段
+  string broker_id = 2;          //经纪公司代码
+  string investor_id = 3;         //投资者代码
+  string posi_direction = 4;     //持仓多空方向
+  string hedge_flag = 5;   // 投机套保标志
+  string position_date = 6;    // 持仓日期
+  int32 position = 7;    // 当前总持仓
+  int32 yd_position = 8;  // 上日持仓
+  int32 today_position = 9;   // 表示今新开仓
+  int32 open_volume = 10;   // 开仓量
+  int32 close_volume = 11;   // 平仓量
+  double open_amount = 12;   // 开仓金额
+  double close_amount = 13;    // 平仓金额
+  double position_cost = 14;   // 持仓成本=上日持仓 * 昨结算价 * 合约乘数 + SUM（今日持仓 * 开仓价 * 合约乘数）
+  double close_profit = 15;    // 平仓盈亏
+  double position_profit = 16;   // 持仓盈亏
+  double open_cost = 17;   // 开仓成本
+  int32 long_frozen = 18;  // 多头冻结
+  int32 short_frozen = 19;   // 空头冻结
+  double long_frozen_amount = 20;    // 开仓冻结金额
+  double short_frozen_amount = 21;  // 开仓冻结金额
+  double pre_margin = 22; // 上次占用的保证金
+  double use_margin = 23;   // 占用的保证金
+  double frozen_margin = 24;   // 冻结的保证金
+  double frozen_cash = 25;   // 冻结的资金
+  double frozen_commission = 26;   // 冻结的手续费
+  double cash_in = 27;  // 资金差额
+  double commission = 28;   // 手续费
+  double pre_settlement_price = 29;  // 上次结算价
+  double settlement_price = 30;  // 本次结算价
+  int32 settlement_id = 31; //结算编号
+  double exchange_margin = 32;   // 交易所保证金
+  int32 comb_position = 33;  // 组合成交形成的持仓
+  int32 comb_long_frozen = 34;   // 组合多头冻结
+  int32 comb_short_frozen = 35;  // 组合空头冻结
+  double close_profit_by_date = 36;  // 逐日盯市平仓盈亏
+  double close_profit_by_trade = 37; // 逐笔对冲平仓盈亏
+  int32 strike_frozen = 38;  // 执行冻结
+  double strike_frozen_amount = 39;  // 执行冻结金额
+  int32 abandon_frozen = 40;    // 放弃执行冻结
+  string exchange_id = 41;   // 交易所代码
+  int32 yd_strike_frozen = 42;   // 执行冻结的昨仓
+  double position_cost_offset = 43;  // 大商所持仓成本差值，只有大商所使用
+  string instrument_id = 44;  // 合约代码
+  string instrument_name = 45;  // 合约名
+}

@@ -1,0 +1,74 @@
+syntax = "proto3";
+option go_package = "/out/model";
+
+import "any.proto";
+enum MsgType {
+    UNIVERSAL = 0;
+
+    ReqQryInstrument = 1;
+    OnRspQryInstrument = 2;
+    OnRtnInstrumentStatus = 3;
+    ReqQryTradingAccount = 4;
+    OnRspQryTradingAccount = 5;
+    ReqQryInvestorPosition = 6;
+    OnRspQryInvestorPosition = 7;
+    ReqQryOrder = 8;
+    OnRspQryOrder = 9;
+    OnRtnOrder = 10;
+    OnRtnTrade = 11;
+    ReqOrderInsert = 12;  //开仓、 平仓
+    OnRspOrderInsert = 13;//报单结果通知
+    ReqOrderAction = 14;  //撤单
+    OnRspOrderAction = 15;
+    OnErrRtnOrderAction = 16;
+    OnRspError = 17;
+
+    SubscribeMarketData = 18;
+    OnRspSubMarketData = 19;
+    UnSubscribeMarketData = 20;
+    OnRspUnSubMarketData = 21;
+    OnRtnDepthMarketData = 22;
+
+    OnFrontConnected = 23;
+    OnFrontDisconnected = 24;
+    ReqAuthenticate = 25;
+    OnRspAuth = 26;
+    ReqUserLogin = 27;
+    OnRspUserLogin = 28;
+    ReqSettlementInfoConfirm = 29;
+    OnRspSettlementInfoConfirm = 30;
+}
+
+// 响应信息
+message NetResult {
+  int32 result = 1;  // 发送结果
+}
+
+// 响应信息
+message RspInfo {
+  int32 error_id = 1;  // 错误代码
+  string error_msg = 2; // 错误信息
+}
+
+message ReqMsg {
+    MsgType type= 1;
+    google.protobuf.Any req = 2;
+}
+
+message RspMsg {
+    MsgType type= 1;
+    google.protobuf.Any rsp = 2;
+}
+
+message TrapMsg{
+    MsgType type= 1;
+    google.protobuf.Any field = 2;
+}
+
+message NotifyMsg{
+    MsgType type= 1;
+    google.protobuf.Any filed = 2;
+    RspInfo rspInfo = 3;
+    int32 request_id = 4;
+    bool isLast = 5;
+}
